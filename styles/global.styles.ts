@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
+import { colors, typography, vars } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
 	${normalize()}
@@ -11,9 +12,12 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+		background-color: ${colors.neutral.light};
+		color: ${colors.neutral.dark};
+		font-family: ${typography.primaryFont};
 		height: 100%;
 		margin: 0 auto;
-		max-width: 1280px;
+		max-width: ${vars.desktopUpperBoundary}px;
 		min-height: 100vh;
 		-webkit-font-smoothing: antialiased;
 	}

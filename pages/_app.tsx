@@ -1,12 +1,18 @@
 import type { AppProps } from 'next/app'
-import { GlobalStyle } from 'styles'
+import { ThemeProvider } from 'styled-components'
+import { dynamicComponent } from 'components'
+import { GlobalStyle, theme } from 'styles'
+
+const Main = dynamicComponent('main')
 
 const App = ({ Component, pageProps }: AppProps) => {
   return <>
 		<GlobalStyle />
-		<main>
-			<Component {...pageProps} />
-		</main>
+		<ThemeProvider theme={theme}>
+			<Main>
+				<Component {...pageProps} />
+			</Main>
+		</ThemeProvider>
 	</>
 }
 
