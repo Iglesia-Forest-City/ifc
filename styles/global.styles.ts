@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
-import { colors, typography, vars } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
 	${normalize()}
@@ -12,12 +11,12 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		background-color: ${colors.neutral.light};
-		color: ${colors.neutral.dark};
-		font-family: ${typography.primaryFont};
+		background-color: ${({ theme }) => theme.colors.neutral.light};
+		color: ${({ theme }) => theme.colors.neutral.dark};
+		font-family: ${({ theme }) => theme.typography.primaryFont};
 		height: 100%;
 		margin: 0 auto;
-		max-width: ${vars.desktopUpperBoundary}px;
+		max-width: ${({ theme }) => theme.vars.desktopUpperBoundary}px;
 		min-height: 100vh;
 		-webkit-font-smoothing: antialiased;
 	}

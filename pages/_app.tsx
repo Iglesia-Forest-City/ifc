@@ -7,8 +7,8 @@ const Main = dynamicComponent('main')
 
 const App = ({ Component, pageProps }: AppProps) => {
   return <>
-		<GlobalStyle />
 		<ThemeProvider theme={theme}>
+			<GlobalStyle />
 			<Main>
 				<Component {...pageProps} />
 			</Main>

@@ -1,5 +1,5 @@
 
-import { createElement, forwardRef, ReactNode } from 'react'
+import { createElement, forwardRef, type ReactNode } from 'react'
 import { Wrapper } from './DynamicComponent.styles'
 
 export type DynamicComponentProps = {
