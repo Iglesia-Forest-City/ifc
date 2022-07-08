@@ -23,10 +23,10 @@ const button = css<StyledButtonProps>`
 			return css`
 				background-color: ${theme.colors.neutral.light};
 				border: 1px solid ${theme.colors.neutral.light};
-				color: ${({ theme }) => theme.colors.neutral.dark};
+				color: ${({ theme }) => theme.colors.blue.dark};
 
 				&:hover {
-					background-color: ${theme.colors.neutral.dark};
+					background-color: transparent;
 					color: ${theme.colors.neutral.light}
 				}
 			`

@@ -17,3 +17,12 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps = async () => {
+	return {
+		props: {
+			logo: '/vercel.svg',
+			logoAltText: 'Forest City logo'
+		}
+	}
+}
