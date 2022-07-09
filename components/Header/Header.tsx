@@ -1,17 +1,18 @@
-import { FC } from 'react'
+import { FC, forwardRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { WrappedHeader, Logo, Actions } from './Header.styles'
+import { WrappedHeader, Logo, Nav, Ul, Li, A } from './Header.styles'
 import { Button } from 'components'
 
 export type HeaderProps = {
 	className?: string;
 	logo: string;
 	logoAltText: string;
+	fixed?: boolean;
 }
 
-export const Header: FC<HeaderProps> = ({ className, logo, logoAltText }) => (
-	<WrappedHeader className={className}>
+export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoAltText, fixed }, ref) => (
+	<WrappedHeader ref={ref} className={className} isFixed={fixed}>
 		<Logo>
 			<Link href="/">
 				<a>
@@ -19,9 +20,37 @@ export const Header: FC<HeaderProps> = ({ className, logo, logoAltText }) => (
 				</a>
 			</Link>
 		</Logo>
-		<Actions>
-			<Button secondary>Contacto</Button>
-			<Button>Donar</Button>
-		</Actions>
+		<Nav>
+			<Ul>
+				<Li>
+					<Link href="#" passHref>
+						<A>Sermones</A>
+					</Link>
+				</Li>
+				<Li>
+					<Link href="#" passHref>
+						<A>Acerca de</A>
+					</Link>
+				</Li>
+				<Li>
+					<Link href="#" passHref>
+						<A>Liderazgo</A>
+					</Link>
+				</Li>
+				<Li>
+					<Link href="#" passHref>
+						<A>Eventos</A>
+					</Link>
+				</Li>
+				<Li>
+					<Button secondary>Contacto</Button>
+				</Li>
+				<Li>
+					<Button>Donar</Button>
+				</Li>
+			</Ul>
+		</Nav>
 	</WrappedHeader>
-)
+))
+
+Header.displayName = 'Header'

@@ -16,7 +16,7 @@ const button = css<StyledButtonProps>`
 
 				&:hover {
 					background-color: ${theme.colors.neutral.light};
-					color: ${theme.colors.neutral.dark};
+					color: ${theme.colors.blue.dark};
 				}
 			`
 		} else {
