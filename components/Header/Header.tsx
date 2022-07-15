@@ -12,7 +12,7 @@ export type HeaderProps = {
 }
 
 export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoAltText, fixed }, ref) => (
-	<WrappedHeader ref={ref} className={className} isFixed={fixed}>
+	<WrappedHeader ref={ref} className={className} $isFixed={fixed}>
 		<Logo>
 			<Link href="/">
 				<a>

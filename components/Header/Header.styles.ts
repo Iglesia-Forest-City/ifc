@@ -6,7 +6,7 @@ export const WrappedHeader = styled(dynamicComponent('header', true))`
 	background-color: ${({ theme }) => theme.colors.blue.dark};
 	max-width: ${({ theme }) => theme.vars.desktopUpperBoundary}px;
 	padding: 1rem 2rem;
-	position: ${({ isFixed }) => isFixed ? 'fixed' : 'static'};
+	position: ${({ $isFixed }) => $isFixed ? 'fixed' : 'static'};
 	width: 100%;
 	z-index: ${({ theme }) => theme.zIndex.header};
 
