@@ -1,4 +1,4 @@
-import { FC, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { WrappedHeader, Logo, Nav, Ul, Li, A } from './Header.styles'

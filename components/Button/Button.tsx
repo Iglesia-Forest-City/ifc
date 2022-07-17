@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode } from 'react'
+import type { FC, MouseEventHandler, ReactNode } from 'react'
 import Link from 'next/link'
 import { isExternalURL } from 'utils'
 import { StyledButton, StyledLink } from './Button.styles'

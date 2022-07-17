@@ -41,6 +41,7 @@ export type ZIndex = {
 	dropdown: number;
 	header: number;
 	footer: number;
+	layer: number;
 }
 
 export type MediaQueries = {

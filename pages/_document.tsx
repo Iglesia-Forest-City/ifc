@@ -1,4 +1,5 @@
-import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import type { DocumentContext } from 'next/document'
+import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import { theme } from 'styles'
 

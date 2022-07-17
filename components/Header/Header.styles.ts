@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 import { transitions } from 'polished'
 import { dynamicComponent, Wrapper } from 'components'
+import { sectionWrapper } from 'styles'
 
 export const WrappedHeader = styled(dynamicComponent('header', true))`
+	${sectionWrapper}
 	background-color: ${({ theme }) => theme.colors.blue.dark};
-	max-width: ${({ theme }) => theme.vars.desktopUpperBoundary}px;
-	padding: 1rem 2rem;
 	position: ${({ $isFixed }) => $isFixed ? 'fixed' : 'static'};
-	width: 100%;
 	z-index: ${({ theme }) => theme.zIndex.header};
 
 	${Wrapper} {
@@ -17,7 +16,6 @@ export const WrappedHeader = styled(dynamicComponent('header', true))`
 		justify-content: space-between;
 		padding: 0;
   	place-items: center;
-		width: 100%;
 	}
 `
 

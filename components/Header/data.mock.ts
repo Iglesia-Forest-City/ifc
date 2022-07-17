@@ -1,4 +1,4 @@
-import { HeaderProps } from './Header'
+import type { HeaderProps } from './Header'
 
 export const mockData: HeaderProps = {
 	logo: '/logo.svg',

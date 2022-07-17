@@ -1,9 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
-import type { AppProps } from 'next/app'
+import type { AppProps as NextAppProps } from 'next/app'
 import styled, { ThemeProvider } from 'styled-components'
 import { dynamicComponent, Header } from 'components'
 import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
+
+type AppProps<P = unknown> = {
+	pageProps: P;
+} & Omit<NextAppProps<P>, 'pageProps'>;
+
+type CommonProps = {
+	logo: string;
+	logoAltText: string;
+	fixedHeader: boolean;
+}
 
 type MainProps = {
 	$marginTop: number;
@@ -22,15 +32,15 @@ const logAppVersion = () => console.log(
 		padding: 0.5em;`,
 )
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
 	const headerRef = useRef<Element>(null)
 	const [mainOffset, setMainOffset] = useState<number>()
 
-	const headerIsFixed = pageProps?.fixedHeader
+	const headerIsFixed = pageProps.fixedHeader
 
 	useEffect(() => {
 		logAppVersion()
-		setMainOffset(headerRef.current?.clientHeight ?? 0)
+		setMainOffset(headerRef.current?.clientHeight ? headerRef.current.clientHeight - 1 : 0)
 	}, [])
 
   return <>

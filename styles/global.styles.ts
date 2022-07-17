@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
 
 export const GlobalStyle = createGlobalStyle`
@@ -49,4 +49,10 @@ export const GlobalStyle = createGlobalStyle`
 			'main'
 			'footer';
 	}
+`
+
+export const sectionWrapper = css`
+	max-width: ${({ theme }) => theme.vars.desktopUpperBoundary}px;
+	padding: 1rem 2rem;
+	width: 100%;
 `

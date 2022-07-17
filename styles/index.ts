@@ -1,2 +1,2 @@
-export { GlobalStyle } from './global.styles'
+export { GlobalStyle, sectionWrapper } from './global.styles'
 export * from './theme'

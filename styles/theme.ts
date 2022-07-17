@@ -44,6 +44,7 @@ export const zIndex: ZIndex = {
 	dropdown: 700,
 	header: 600,
 	footer: 500,
+	layer: 400,
 }
 
 // Based on https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/

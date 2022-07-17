@@ -7,3 +7,9 @@ export type { DynamicComponentProps } from './DynamicComponent'
 
 export { Header } from './Header'
 export type { HeaderProps } from './Header'
+
+export { Hero } from './Hero'
+export type { HeroProps } from './Hero'
+
+export { Link } from './Link'
+export type { LinkProps } from './Link'
