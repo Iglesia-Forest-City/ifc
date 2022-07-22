@@ -1,5 +1,5 @@
 import { linearGradient } from 'polished'
-import { dynamicComponent, Wrapper } from 'components'
+import { dynamicComponent } from 'components'
 import styled from 'styled-components'
 import { sectionWrapper } from 'styles'
 
@@ -30,10 +30,6 @@ export const WrappedHero = styled(dynamicComponent('div', true))`
 		fallback: 'transparent',
 	})}
 	padding: 6rem 2rem 7rem;
-
-	${Wrapper} {
-		padding: 0;
-	}
 `
 
 export const Title = styled.h1`

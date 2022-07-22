@@ -14,7 +14,6 @@ export const WrappedHeader = styled(dynamicComponent('header', true))`
 		gap: 1em;
 		grid-template-areas: 'logo menu';
 		justify-content: space-between;
-		padding: 0;
   	place-items: center;
 	}
 `

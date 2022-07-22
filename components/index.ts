@@ -13,3 +13,6 @@ export type { HeroProps } from './Hero'
 
 export { Link } from './Link'
 export type { LinkProps } from './Link'
+
+export { Welcome } from './Welcome'
+export type { WelcomeProps } from './Welcome'

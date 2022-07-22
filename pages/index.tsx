@@ -1,12 +1,14 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Hero, type HeroProps } from 'components'
+import { Hero, Welcome } from 'components'
+import type { HeroProps, WelcomeProps } from 'components'
 
 type HomeProps = {
-	hero: HeroProps
+	hero: HeroProps;
+	welcome: WelcomeProps;
 }
 
-const Home: NextPage<HomeProps> = ({ hero }) => {
+const Home: NextPage<HomeProps> = ({ hero, welcome }) => {
   return (
 		<>
       <Head>
@@ -14,6 +16,7 @@ const Home: NextPage<HomeProps> = ({ hero }) => {
         <meta name="description" content="Iglesia Forest City" />
       </Head>
 			<Hero title={hero.title} text={hero.text} cta={hero.cta} video={hero.video} poster={hero.poster} />
+			<Welcome title={welcome.title} text={welcome.text} backgroundImage={welcome.backgroundImage}/>
 		</>
   )
 }
@@ -35,6 +38,11 @@ export const getStaticProps = async () => {
 					text: 'Ver sermones',
 					href: '#'
 				}
+			},
+			welcome: {
+				title: 'Bienvenido a Forest City',
+				text: 'Desde nuestra fundación en 1971, hemos crecido siendo una comunidad diversa de discípulos de Cristo, representando distintas edades, nacionalidades y tradiciones. Nos une  la fe en la Palabra de Dios, nuestro amor por Él y por nuestro prójimo, y  el compromiso al servicio y al evangelio.\nNos alegra que hayas pasado por nuestro sitio web y esperamos que muy pronto te conectes con nosotros en persona y/ o online.',
+				backgroundImage: '/welcome.jpg'
 			}
 		}
 	}

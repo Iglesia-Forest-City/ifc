@@ -5,7 +5,7 @@ import { mockData } from './data.mock'
 describe('<Link />', () => {
   it('should render', () => {
     render(<Link {...mockData} />)
-    const link = screen.getByRole('link', { name: mockData.children })
+    const link = screen.getByRole('link', { name: mockData.children as string })
     expect(link).toBeInTheDocument()
   })
 })
