@@ -6,7 +6,8 @@ import { sectionWrapper } from 'styles'
 export const WrappedHeader = styled(dynamicComponent('header', true))`
 	${sectionWrapper}
 	background-color: ${({ theme }) => theme.colors.blue.dark};
-	position: ${({ $isFixed }) => $isFixed ? 'fixed' : 'static'};
+	position: ${({ $isFixed }) => $isFixed ? 'sticky' : 'static'};
+	top: 0;
 	z-index: ${({ theme }) => theme.zIndex.header};
 
 	${Wrapper} {

@@ -14,5 +14,8 @@ export type { HeroProps } from './Hero'
 export { Link } from './Link'
 export type { LinkProps } from './Link'
 
+export { Values } from './Values'
+export type { ValuesProps } from './Values'
+
 export { Welcome } from './Welcome'
 export type { WelcomeProps } from './Welcome'

@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
 		grid-area: header;
 	}
 
+	html {
+		scroll-behavior: smooth;
+	}
+
 	img {
 		max-width: 100%;
 		vertical-align: middle;

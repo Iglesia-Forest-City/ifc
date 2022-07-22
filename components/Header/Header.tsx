@@ -28,7 +28,7 @@ export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoA
 					</Link>
 				</Li>
 				<Li>
-					<Link href="#" passHref>
+					<Link href="#acerca-de-nosotros" passHref>
 						<A>Acerca de</A>
 					</Link>
 				</Li>

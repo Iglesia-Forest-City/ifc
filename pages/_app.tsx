@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 import type { AppProps as NextAppProps } from 'next/app'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { dynamicComponent, Header } from 'components'
 import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
@@ -10,19 +10,14 @@ type AppProps<P = unknown> = {
 } & Omit<NextAppProps<P>, 'pageProps'>;
 
 type CommonProps = {
-	logo: string;
-	logoAltText: string;
-	fixedHeader: boolean;
+	header: {
+		logo: string;
+		logoAltText: string;
+		fixedHeader: boolean;
+	},
 }
 
-type MainProps = {
-	$marginTop: number;
-	$headerIsFixed?: boolean;
-}
-
-const Main = styled(dynamicComponent('main'))<MainProps>`
-	margin-top: ${({ $marginTop, $headerIsFixed }) => $headerIsFixed ? $marginTop : 0}px;
-`
+const Main = dynamicComponent('main')
 
 const logAppVersion = () => console.log(
 	`%c${pkg.description}, version: ${pkg.version}`,
@@ -33,21 +28,15 @@ const logAppVersion = () => console.log(
 )
 
 const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
-	const headerRef = useRef<Element>(null)
-	const [mainOffset, setMainOffset] = useState<number>()
-
-	const headerIsFixed = pageProps.fixedHeader
-
 	useEffect(() => {
 		logAppVersion()
-		setMainOffset(headerRef.current?.clientHeight ? headerRef.current.clientHeight - 1 : 0)
 	}, [])
 
   return <>
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<Header ref={headerRef} logo={pageProps.logo} logoAltText={pageProps.logoAltText} fixed={headerIsFixed} />
-			<Main $marginTop={mainOffset} $headerIsFixed={headerIsFixed}>
+			<Header logo={pageProps.header?.logo} logoAltText={pageProps?.header?.logoAltText} fixed={pageProps.header?.fixedHeader} />
+			<Main>
 				<Component {...pageProps} />
 			</Main>
 		</ThemeProvider>
