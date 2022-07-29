@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	body {
 		background-color: ${({ theme }) => theme.colors.neutral.light};
-		color: ${({ theme }) => theme.colors.neutral.dark};
+		color: ${({ theme }) => theme.colors.blue.semiDark};
 		font-family: ${({ theme }) => theme.typography.primaryFont};
 		height: 100%;
 		margin: 0 auto;

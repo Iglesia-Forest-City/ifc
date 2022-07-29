@@ -17,5 +17,14 @@ export type { LinkProps } from './Link'
 export { Values } from './Values'
 export type { ValuesProps } from './Values'
 
+export { VideoItem } from './VideoItem'
+export type { VideoItemProps } from './VideoItem'
+
+export { Videos } from './Videos'
+export type { VideosProps } from './Videos'
+
 export { Welcome } from './Welcome'
 export type { WelcomeProps } from './Welcome'
+
+export { YouTubeVideo } from './YouTubeVideo'
+export type { YouTubeVideoProps } from './YouTubeVideo'

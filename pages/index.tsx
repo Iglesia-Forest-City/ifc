@@ -1,15 +1,19 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Hero, Values, Welcome } from 'components'
-import type { HeroProps, ValuesProps, WelcomeProps } from 'components'
+import type { AxiosError } from 'axios'
+import { Hero, Values, Videos, Welcome } from 'components'
+import type { HeroProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
+import { youtube } from 'services'
+import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
 type HomeProps = {
-	hero: HeroProps;
-	welcome: WelcomeProps;
-	values: ValuesProps;
+	hero: HeroProps
+	welcome: WelcomeProps
+	values: ValuesProps
+	videos: VideosProps
 }
 
-const Home: NextPage<HomeProps> = ({ hero, welcome, values }) => {
+const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos }) => {
   return (
 		<>
       <Head>
@@ -17,6 +21,7 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values }) => {
         <meta name="description" content="Iglesia Forest City" />
       </Head>
 			<Hero title={hero.title} text={hero.text} cta={hero.cta} video={hero.video} poster={hero.poster} />
+			<Videos title={videos.title} videos={videos.videos} channelURL={videos.channelURL} />
 			<Welcome id={welcome.id} title={welcome.title} text={welcome.text} backgroundImage={welcome.backgroundImage}/>
 			<Values title={values.title} values={values.values} />
 		</>
@@ -26,6 +31,20 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values }) => {
 export default Home
 
 export const getStaticProps = async () => {
+	let videos: YouTubeVideoSnippet[]
+	try {
+		const youtubeResponse = await youtube.get<YouTubeDataResponse>('/playlistItems', {
+			params: {
+				playlistId: 'PLOqMc4wUtGMtYS9zz5UoK-dGEwYb1kjZ0',
+				maxResults: 10,
+			},
+		})
+		videos = youtubeResponse.data.items.map(({ snippet }) => snippet)
+	} catch (err) {
+		// eslint-disable-next-line no-console
+		console.error(`Videos: ${(err as AxiosError).message}`)
+		videos = []
+	}
 	return {
 		props: {
 			header: {
@@ -42,6 +61,11 @@ export const getStaticProps = async () => {
 					text: 'Ver sermones',
 					href: '#'
 				}
+			},
+			videos: {
+				title: 'Más temas',
+				videos,
+				channelURL: 'https://www.youtube.com/c/VideosForestCity'
 			},
 			welcome: {
 				id: 'acerca-de-nosotros',
