@@ -13,11 +13,23 @@ export const Title = styled.h2`
 
 export const Value = styled.p`
 	font-family: ${({ theme }) => theme.typography.secondaryFont};
-	font-size: 350px;
+	font-size: 140px;
 	font-weight: 900;
 	line-height: 0.8;
 	margin: 0.1em 0;
 	word-break: break-word;
+
+	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+		font-size: 190px;
+	}
+
+	${({ theme }) => theme.mediaQueries.tabletLandscapeUp} {
+		font-size: 280px;
+	}
+
+	${({ theme }) => theme.mediaQueries.desktopUp} {
+		font-size: 350px;
+	}
 `
 
 export const ValuesSection = styled(dynamicComponent('section', true))`

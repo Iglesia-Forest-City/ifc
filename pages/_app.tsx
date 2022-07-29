@@ -6,14 +6,14 @@ import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
 
 type AppProps<P = unknown> = {
-	pageProps: P;
-} & Omit<NextAppProps<P>, 'pageProps'>;
+	pageProps: P
+} & Omit<NextAppProps<P>, 'pageProps'>
 
 type CommonProps = {
 	header: {
-		logo: string;
-		logoAltText: string;
-		fixedHeader: boolean;
+		logo: string
+		logoAltText: string
+		fixedHeader: boolean
 	},
 }
 

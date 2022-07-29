@@ -21,7 +21,7 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos }) => {
         <meta name="description" content="Iglesia Forest City" />
       </Head>
 			<Hero title={hero.title} text={hero.text} cta={hero.cta} video={hero.video} poster={hero.poster} />
-			<Videos title={videos.title} videos={videos.videos} channelURL={videos.channelURL} />
+			<Videos id={videos.id} title={videos.title} videos={videos.videos} channelURL={videos.channelURL} />
 			<Welcome id={welcome.id} title={welcome.title} text={welcome.text} backgroundImage={welcome.backgroundImage}/>
 			<Values title={values.title} values={values.values} />
 		</>
@@ -59,10 +59,11 @@ export const getStaticProps = async () => {
 				text: 'Dondequiera que te encuentres en la vida, queremos ser el lugar en el que puedas confiar para recibir inspiración, ánimo y apoyo. Nos reunimos cada sábado a las 10:30 am.',
 				cta: {
 					text: 'Ver sermones',
-					href: '#'
+					href: '#sermones'
 				}
 			},
 			videos: {
+				id:'sermones',
 				title: 'Más temas',
 				videos,
 				channelURL: 'https://www.youtube.com/c/VideosForestCity'

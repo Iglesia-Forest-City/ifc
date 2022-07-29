@@ -3,7 +3,7 @@ import { dynamicComponent } from 'components'
 import { sectionWrapper } from 'styles'
 
 type WelcomeSectionProps = {
-	$backgroundImage: string;
+	$backgroundImage: string
 }
 
 export const WelcomeSection = styled(dynamicComponent('section', true))<WelcomeSectionProps>`
@@ -12,8 +12,12 @@ export const WelcomeSection = styled(dynamicComponent('section', true))<WelcomeS
 	background-position: center;
 	background-size: cover;
 	color: ${({ theme }) => theme.colors.neutral.light};
-	padding: 2rem 2rem 14rem;
+	padding: 2rem;
 	text-align: center;
+
+	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+		padding: 2rem 2rem 14rem;
+	}
 `
 
 export const Title = styled.h2`

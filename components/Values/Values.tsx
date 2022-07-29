@@ -2,9 +2,9 @@ import type { FC } from 'react'
 import { Title, Value, ValuesSection } from './Values.styles'
 
 export type ValuesProps = {
-	className?: string;
-	title: string;
-	values: string[];
+	className?: string
+	title: string
+	values: string[]
 }
 
 export const Values: FC<ValuesProps> = ({ className, title, values }) => (

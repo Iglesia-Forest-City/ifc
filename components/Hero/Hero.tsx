@@ -3,15 +3,15 @@ import { Link } from 'components';
 import { HeroSection, Text, Title, Video, WrappedHero } from './Hero.styles'
 
 export type HeroProps = {
-	className?: string;
-	title: string;
-	text: string;
+	className?: string
+	title: string
+	text: string
 	cta: {
-		text: string;
-		href: string;
+		text: string
+		href: string
 	},
-	video: string;
-	poster: string;
+	video: string
+	poster: string
 }
 
 export const Hero: FC<HeroProps> = ({ className, title, text, poster, video, cta }) => (

@@ -4,8 +4,8 @@ import { createElement, forwardRef } from 'react'
 import { Wrapper } from './DynamicComponent.styles'
 
 export type DynamicComponentProps = {
-	children: ReactNode;
-	[key: string]: unknown;
+	children: ReactNode
+	[key: string]: unknown
 }
 
 export const dynamicComponent = (tag: string, hasWrapper = false) => {

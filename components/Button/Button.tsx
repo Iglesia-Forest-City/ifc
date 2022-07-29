@@ -4,13 +4,13 @@ import { isExternalURL } from 'utils'
 import { StyledButton, StyledLink } from './Button.styles'
 
 export type ButtonProps = {
-	className?: string;
-	href?: string;
-	secondary?: boolean;
-	small?: boolean;
-	uppercase?: boolean;
-	children: ReactNode;
-	onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
+	className?: string
+	href?: string
+	secondary?: boolean
+	small?: boolean
+	uppercase?: boolean
+	children: ReactNode
+	onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>
 }
 
 export const Button: FC<ButtonProps> = ({ className, href, secondary, small, uppercase, children, ...props }) => {

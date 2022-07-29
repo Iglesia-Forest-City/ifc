@@ -3,10 +3,10 @@ import type { Colors, MediaQueries, Typography, Vars, ZIndex } from './theme.typ
 
 declare module 'styled-components' {
 	export interface DefaultTheme {
-		colors: Colors;
-		mediaQueries: MediaQueries;
-		typography: Typography;
-		vars: Vars;
-		zIndex: ZIndex;
+		colors: Colors
+		mediaQueries: MediaQueries
+		typography: Typography
+		vars: Vars
+		zIndex: ZIndex
 	}
 }

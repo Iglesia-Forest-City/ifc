@@ -6,13 +6,14 @@ import { cleanVideoTitle } from 'utils';
 
 export type VideosProps = {
 	className?: string
+	id: string
 	title: string
 	videos: YouTubeVideoSnippet[]
 	channelURL: string
 }
 
-export const Videos: FC<VideosProps> = ({ className, title, videos, channelURL }) => (
-	<VideosSection>
+export const Videos: FC<VideosProps> = ({ className, id, title, videos, channelURL }) => (
+	<VideosSection id={id}>
 		<Title className={className}>{title}</Title>
 		<CTA href={channelURL}>Ver todos</CTA>
 		{videos.length > 0 && (

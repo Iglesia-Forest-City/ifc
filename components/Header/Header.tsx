@@ -5,10 +5,10 @@ import { WrappedHeader, Logo, Nav, Ul, Li, A } from './Header.styles'
 import { Button } from 'components'
 
 export type HeaderProps = {
-	className?: string;
-	logo: string;
-	logoAltText: string;
-	fixed?: boolean;
+	className?: string
+	logo: string
+	logoAltText: string
+	fixed?: boolean
 }
 
 export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoAltText, fixed }, ref) => (
@@ -23,7 +23,7 @@ export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoA
 		<Nav>
 			<Ul>
 				<Li>
-					<Link href="#" passHref>
+					<Link href="#sermones" passHref>
 						<A>Sermones</A>
 					</Link>
 				</Li>

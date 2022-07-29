@@ -4,9 +4,9 @@ import { StyledLink } from './Link.styles'
 import { isExternalURL } from 'utils'
 
 export type LinkProps = {
-	className?: string;
-	href: string;
-	children: ReactNode;
+	className?: string
+	href: string
+	children: ReactNode
 }
 
 export const Link: FC<LinkProps> = ({ className, href, children, ...props }) => {

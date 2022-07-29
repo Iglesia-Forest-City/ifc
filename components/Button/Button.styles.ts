@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 
 interface StyledButtonProps {
-	readonly secondary?: boolean;
-	readonly small?: boolean;
-	readonly uppercase?: boolean;
+	readonly secondary?: boolean
+	readonly small?: boolean
+	readonly uppercase?: boolean
 }
 
 const button = css<StyledButtonProps>`

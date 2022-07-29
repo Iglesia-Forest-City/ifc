@@ -3,11 +3,11 @@ import cx from 'classnames'
 import { Text, Title, WelcomeSection } from './Welcome.styles'
 
 export type WelcomeProps = {
-	className?: string;
-	id?: string;
-	title: string;
-	text: string;
-	backgroundImage: string;
+	className?: string
+	id?: string
+	title: string
+	text: string
+	backgroundImage: string
 }
 
 export const Welcome: FC<WelcomeProps> = ({ className, id, title, text, backgroundImage }) => (

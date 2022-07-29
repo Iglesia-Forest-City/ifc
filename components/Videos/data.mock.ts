@@ -1,6 +1,7 @@
 import type { VideosProps } from './Videos'
 
 export const mockData: VideosProps = {
+	id: 'videos-id',
   title: 'This is a title',
 	channelURL:'https://www.youtube.com/c/VideosForestCity',
 	videos: [
