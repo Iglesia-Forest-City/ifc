@@ -14,6 +14,8 @@ type CommonProps = {
 		logo: string
 		logoAltText: string
 		fixedHeader: boolean
+		donationsURL: string
+		donationsURLInternational: string
 	},
 }
 
@@ -35,7 +37,13 @@ const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
   return <>
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<Header logo={pageProps.header?.logo} logoAltText={pageProps?.header?.logoAltText} fixed={pageProps.header?.fixedHeader} />
+			<Header
+				logo={pageProps.header?.logo}
+				logoAltText={pageProps?.header?.logoAltText}
+				fixed={pageProps.header?.fixedHeader}
+				donationsURL={pageProps?.header?.donationsURL}
+				donationsURLInternational={pageProps?.header?.donationsURLInternational}
+			/>
 			<Main>
 				<Component {...pageProps} />
 			</Main>

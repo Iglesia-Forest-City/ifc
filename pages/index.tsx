@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
 import { Hero, Values, Videos, Welcome } from 'components'
@@ -30,7 +30,7 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos }) => {
 
 export default Home
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 	let videos: YouTubeVideoSnippet[]
 	try {
 		const youtubeResponse = await youtube.get<YouTubeDataResponse>('/playlistItems', {
@@ -51,6 +51,8 @@ export const getStaticProps = async () => {
 				logo: '/fc-logo.svg',
 				logoAltText: 'Forest City logo',
 				fixedHeader: true,
+				donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
+				donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
 			},
 			hero: {
 				video: '/hero-ifc.mp4',
