@@ -13,7 +13,7 @@ export type VideoItemProps = {
 
 export const VideoItem: FC<VideoItemProps> = ({ className, id, title, date, description }) => {
 	return (
-		<VideoWrapper>
+		<VideoWrapper className={className}>
 			<Video key={id} id={id} title={title} />
 			<VideoDetails
 				href={`https://www.youtube.com/watch?v=${id}`}
@@ -22,7 +22,7 @@ export const VideoItem: FC<VideoItemProps> = ({ className, id, title, date, desc
 			>
 				<Title>{title}</Title>
 				<VideoDate>{date}</VideoDate>
-				<VideoDescription>{description}</VideoDescription>
+				{/* <VideoDescription>{description}</VideoDescription> */}
 			</VideoDetails>
 		</VideoWrapper>
 	)
