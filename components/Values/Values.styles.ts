@@ -1,19 +1,15 @@
 import styled from 'styled-components'
 import { dynamicComponent } from 'components/DynamicComponent'
 import { sectionWrapper } from 'styles'
+import { sectionTitle } from 'styles/global.styles'
 
 export const Title = styled.h2`
-	color: ${({ theme }) => theme.colors.blue.semiDark};
-	font-family: ${({ theme }) => theme.typography.secondaryFont};
-	font-size: 48px;
-	line-height: 80px;
-	margin: 0 auto;
-	text-align: center;
+	${sectionTitle}
 `
 
 export const Value = styled.p`
 	font-family: ${({ theme }) => theme.typography.secondaryFont};
-	font-size: 140px;
+	font-size: 84px;
 	font-weight: 900;
 	line-height: 0.8;
 	margin: 0.1em 0;

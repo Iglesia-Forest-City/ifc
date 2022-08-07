@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { dynamicComponent } from 'components'
 import { sectionWrapper } from 'styles'
+import { sectionTitle } from 'styles/global.styles'
 
 type WelcomeSectionProps = {
 	$backgroundImage: string
@@ -21,11 +22,8 @@ export const WelcomeSection = styled(dynamicComponent('section', true))<WelcomeS
 `
 
 export const Title = styled.h2`
-	font-family: ${({ theme }) => theme.typography.secondaryFont};
-	font-size: 48px;
-	font-weight: 900;
-	line-height: 80px;
-	margin: 0;
+	${sectionTitle}
+	color: inherit;
 `
 
 export const Text = styled.p`

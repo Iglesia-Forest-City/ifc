@@ -60,3 +60,12 @@ export const sectionWrapper = css`
 	padding: 1rem 2rem;
 	width: 100%;
 `
+
+export const sectionTitle = css`
+	color: ${({ theme }) => theme.colors.blue.semiDark};
+	font-family: ${({ theme }) => theme.typography.secondaryFont};
+	font-size: 48px;
+	line-height: 80px;
+	margin: 0 auto;
+	text-align: center;
+`

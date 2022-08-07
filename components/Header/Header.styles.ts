@@ -39,6 +39,14 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
 	display: grid;
+
+	&:not(:last-of-type) {
+		display: none;
+
+		${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+			display: block;
+		}
+	}
 `
 
 export const A = styled.a`

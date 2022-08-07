@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { dynamicComponent, Wrapper } from 'components/DynamicComponent'
 import { sectionWrapper } from 'styles'
 import { Link } from 'components/Link'
+import { sectionTitle } from 'styles/global.styles'
 
 export const VideosSection = styled(dynamicComponent('section', true))`
 	${sectionWrapper}
@@ -30,12 +31,9 @@ export const VideosSection = styled(dynamicComponent('section', true))`
 `
 
 export const Title = styled.h2`
-	font-family: ${({ theme }) => theme.typography.secondaryFont};
-	font-size: 48px;
-	font-weight: 900;
-	grid-area: title;
-	line-height: 1;
+	${sectionTitle}
 	margin: 0;
+	text-align: left;
 `
 
 export const VideoGallery = styled.div`
