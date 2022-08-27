@@ -1,6 +1,4 @@
-import { FC } from 'react'
-import { Title, VideoDate, VideoDescription, VideoDetails, VideoWrapper } from './VideoItem.styles'
-
+import { Title, VideoDate, /*VideoDescription, */VideoDetails, VideoWrapper } from './VideoItem.styles'
 import { YouTubeVideo as Video } from 'components'
 
 export type VideoItemProps = {
@@ -11,7 +9,7 @@ export type VideoItemProps = {
 	description: string
 }
 
-export const VideoItem: FC<VideoItemProps> = ({ className, id, title, date, description }) => {
+export const VideoItem = ({ className, id, title, date/*, description */}: VideoItemProps) => {
 	return (
 		<VideoWrapper className={className}>
 			<Video key={id} id={id} title={title} />

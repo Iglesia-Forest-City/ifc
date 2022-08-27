@@ -49,12 +49,12 @@ export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoA
 							<A>Acerca de</A>
 						</Link>
 					</Li>
-					{/* <Li>
-						<Link href="#" passHref>
+					<Li>
+						<Link href="#liderazgo" passHref>
 							<A>Liderazgo</A>
 						</Link>
 					</Li>
-					<Li>
+					{/* <Li>
 						<Link href="#" passHref>
 							<A>Eventos</A>
 						</Link>

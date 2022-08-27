@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 // import { useEffect, useRef } from 'react'
 import { YTVideo } from './YouTubeVideo.styles'
 
@@ -24,7 +23,7 @@ export type YouTubeVideoProps = {
 	// onStateChange?: () => void
 }
 
-export const YouTubeVideo: FC<YouTubeVideoProps> = ({ className, title, id/*, onReady, onStateChange*/ }) => {
+export const YouTubeVideo = ({ className, title, id/*, onReady, onStateChange*/ }: YouTubeVideoProps) => {
 	// const player = useRef<YT.Player>()
 
 	// useEffect(() => {

@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import NextLink from 'next/link'
 import { StyledLink } from './Link.styles'
 import { isExternalURL } from 'utils'
@@ -9,7 +9,7 @@ export type LinkProps = {
 	children: ReactNode
 }
 
-export const Link: FC<LinkProps> = ({ className, href, children, ...props }) => {
+export const Link = ({ className, href, children, ...props }: LinkProps) => {
 	let link: JSX.Element
 	const isExternal = isExternalURL(href)
 	if (isExternal) {

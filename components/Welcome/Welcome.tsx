@@ -1,5 +1,3 @@
-import type { FC } from 'react'
-import cx from 'classnames'
 import { Text, Title, WelcomeSection } from './Welcome.styles'
 
 export type WelcomeProps = {
@@ -10,9 +8,9 @@ export type WelcomeProps = {
 	backgroundImage: string
 }
 
-export const Welcome: FC<WelcomeProps> = ({ className, id, title, text, backgroundImage }) => (
-	<WelcomeSection id={id} $backgroundImage={backgroundImage}>
-		<Title className={cx(className, 'custom-class')}>{title}</Title>
+export const Welcome = ({ className, id, title, text, backgroundImage }: WelcomeProps) => (
+	<WelcomeSection id={id} className={className} $backgroundImage={backgroundImage}>
+		<Title>{title}</Title>
 		<Text>{text}</Text>
 	</WelcomeSection>
 )

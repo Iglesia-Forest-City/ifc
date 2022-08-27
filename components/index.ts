@@ -1,15 +1,18 @@
 /* INJECT_EXPORT */
-export { Button } from './Button'
-export type { ButtonProps } from './Button'
-
 export { dynamicComponent, Wrapper } from './DynamicComponent'
 export type { DynamicComponentProps } from './DynamicComponent'
+
+export { Button } from './Button'
+export type { ButtonProps } from './Button'
 
 export { Header } from './Header'
 export type { HeaderProps } from './Header'
 
 export { Hero } from './Hero'
 export type { HeroProps } from './Hero'
+
+export { Leadership } from './Leadership'
+export type { LeadershipProps } from './Leadership'
 
 export { Link } from './Link'
 export type { LinkProps } from './Link'

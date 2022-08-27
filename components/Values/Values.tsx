@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { Title, Value, ValuesSection } from './Values.styles'
 
 export type ValuesProps = {
@@ -7,7 +6,7 @@ export type ValuesProps = {
 	values: string[]
 }
 
-export const Values: FC<ValuesProps> = ({ className, title, values }) => (
+export const Values = ({ className, title, values }: ValuesProps) => (
 	<ValuesSection>
 		<Title className={className}>{title}</Title>
 		{values.map(value => <Value key={value}>{value}</Value>)}

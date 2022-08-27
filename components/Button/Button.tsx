@@ -1,4 +1,4 @@
-import type { FC, MouseEventHandler, ReactNode } from 'react'
+import type { MouseEventHandler, ReactNode } from 'react'
 import Link from 'next/link'
 import { isExternalURL } from 'utils'
 import { StyledButton, StyledLink } from './Button.styles'
@@ -13,7 +13,7 @@ export type ButtonProps = {
 	onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>
 }
 
-export const Button: FC<ButtonProps> = ({ className, href, secondary, small, uppercase, children, ...props }) => {
+export const Button = ({ className, href, secondary, small, uppercase, children, ...props }: ButtonProps) => {
 	let button: JSX.Element
 
 	if (href) {

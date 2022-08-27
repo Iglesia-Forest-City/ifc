@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { Link } from 'components';
 import { HeroSection, Text, Title, Video, WrappedHero } from './Hero.styles'
 
@@ -14,7 +13,7 @@ export type HeroProps = {
 	poster: string
 }
 
-export const Hero: FC<HeroProps> = ({ className, title, text, poster, video, cta }) => (
+export const Hero = ({ className, title, text, poster, video, cta }: HeroProps) => (
 	<HeroSection className={className}>
 		<Video playsInline autoPlay muted loop poster={poster}>
 			<source src={video} type="video/mp4" />

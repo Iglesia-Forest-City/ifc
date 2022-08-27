@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { CTA, GalleryWrapper, Title, VideoGallery, VideosSection } from './Videos.styles';
 import type { YouTubeVideoSnippet } from 'services'
 import { VideoItem } from 'components/VideoItem'
@@ -12,7 +11,7 @@ export type VideosProps = {
 	channelURL: string
 }
 
-export const Videos: FC<VideosProps> = ({ className, id, title, videos, channelURL }) => (
+export const Videos = ({ className, id, title, videos, channelURL }: VideosProps) => (
 	<VideosSection id={id}>
 		<Title className={className}>{title}</Title>
 		<CTA href={channelURL}>Ver todos</CTA>
