@@ -21,6 +21,7 @@ export const VideoDate = styled.p`
 	color: ${({ theme }) => theme.colors.blue.dark};
 	font-size: 12px;
 	font-weight: 300;
+	text-transform: capitalize;
 `
 
 export const VideoDescription = styled.p`

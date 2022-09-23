@@ -5,6 +5,12 @@ export type { DynamicComponentProps } from './DynamicComponent'
 export { Button } from './Button'
 export type { ButtonProps } from './Button'
 
+export { Event } from './Event'
+export type { EventProps } from './Event'
+
+export { Events } from './Events'
+export type { EventsProps } from './Events'
+
 export { Header } from './Header'
 export type { HeaderProps } from './Header'
 

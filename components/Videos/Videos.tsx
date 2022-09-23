@@ -1,7 +1,7 @@
 import { CTA, GalleryWrapper, Title, VideoGallery, VideosSection } from './Videos.styles';
 import type { YouTubeVideoSnippet } from 'services'
 import { VideoItem } from 'components/VideoItem'
-import { cleanVideoTitle } from 'utils';
+import { cleanVideoTitle, formatDate } from 'utils';
 
 export type VideosProps = {
 	className?: string
@@ -23,7 +23,7 @@ export const Videos = ({ className, id, title, videos, channelURL }: VideosProps
 							key={resourceId.videoId}
 							id={resourceId.videoId}
 							title={cleanVideoTitle(title)}
-							date={new Date(publishedAt).toLocaleDateString()}
+							date={formatDate(new Date(publishedAt))}
 							description={description}
 						/>
 					))}

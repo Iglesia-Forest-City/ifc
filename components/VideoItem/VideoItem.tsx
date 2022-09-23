@@ -1,5 +1,6 @@
 import { Title, VideoDate, /*VideoDescription, */VideoDetails, VideoWrapper } from './VideoItem.styles'
 import { YouTubeVideo as Video } from 'components'
+import { formatDate } from 'utils'
 
 export type VideoItemProps = {
 	className?: string

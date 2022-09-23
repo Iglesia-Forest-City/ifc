@@ -1,8 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
-import { Hero, Leadership, Values, Videos, Welcome } from 'components'
-import type { HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
+import { Events, Hero, Leadership, Values, Videos, Welcome } from 'components'
+import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
 import { youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
@@ -12,9 +12,10 @@ type HomeProps = {
 	values: ValuesProps
 	videos: VideosProps
 	leadership: LeadershipProps
+	events: EventsProps
 }
 
-const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership }) => {
+const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, events }) => {
   return (
 		<>
       <Head>
@@ -22,10 +23,11 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership }
         <meta name="description" content="Iglesia Forest City" />
       </Head>
 			<Hero title={hero.title} text={hero.text} cta={hero.cta} video={hero.video} poster={hero.poster} />
-			<Videos id={videos.id} title={videos.title} videos={videos.videos} channelURL={videos.channelURL} />
+			{videos.videos.length > 0 && <Videos id={videos.id} title={videos.title} videos={videos.videos} channelURL={videos.channelURL} />}
 			<Welcome id={welcome.id} title={welcome.title} text={welcome.text} backgroundImage={welcome.backgroundImage}/>
 			<Values title={values.title} values={values.values} />
 			<Leadership id={leadership.id} title={leadership.title} leaders={leadership.leaders} />
+			{events.events.length > 0 && <Events id={events.id} title={events.title} events={events.events} />}
 		</>
   )
 }
@@ -110,6 +112,28 @@ export const getStaticProps: GetStaticProps = async () => {
 						role: 'Pastor asociado',
 						bio: 'Nació en Argentina. Sirvió en Puerto Rico y Argentina como pastor, evangelista, director de radio y tv y productor de programas para radio y tv.',
 					},
+				]
+			},
+			events: {
+				id: 'eventos',
+				title: 'Eventos',
+				events: [
+					{
+						name: 'Diálogo abierto',
+						date: '2022-10-14T19:30:00',
+					},
+					{
+						name: 'Escuela Sabática',
+						date: '2022-10-15T09:30:00',
+					},
+					{
+						name: 'Predicación',
+						date: '2022-10-15T11:30:00',
+					},
+					{
+						name: 'Sociedad de Jóvenes',
+						date: '2022-10-15T16:30:00',
+					}
 				]
 			}
 		}
