@@ -10,6 +10,15 @@ export const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;
 	}
 
+	a {
+		color: ${({ theme }) => theme.colors.blue.light};
+		transition: color ${({ theme }) => theme.vars.transitionTime };
+
+		&:hover {
+			color: ${({ theme }) => theme.colors.blue.semiDark};
+		}
+	}
+
 	body {
 		background-color: ${({ theme }) => theme.colors.neutral.light};
 		color: ${({ theme }) => theme.colors.blue.semiDark};
@@ -46,6 +55,10 @@ export const GlobalStyle = createGlobalStyle`
 		grid-area: main;
 	}
 
+	ul {
+		padding-left: 1.5em;
+	}
+
 	#__next {
 		display: grid;
 		grid-template-areas:
@@ -65,7 +78,7 @@ export const sectionTitle = css`
 	color: ${({ theme }) => theme.colors.blue.semiDark};
 	font-family: ${({ theme }) => theme.typography.secondaryFont};
 	font-size: 48px;
-	line-height: 80px;
+	line-height: 56px;
 	margin: 0 auto;
 	text-align: center;
 `

@@ -35,7 +35,7 @@ export const vars: Vars = {
 	phoneUpperBoundary: 600,
 	tabletPortraitUpperBoundary: 900,
 	tabletLandscapeUpperBoundary: 1200,
-	desktopUpperBoundary: 1800,
+	desktopUpperBoundary: 1400,
 }
 
 export const zIndex: ZIndex = {

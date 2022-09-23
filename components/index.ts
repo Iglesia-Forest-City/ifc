@@ -2,6 +2,9 @@
 export { dynamicComponent, Wrapper } from './DynamicComponent'
 export type { DynamicComponentProps } from './DynamicComponent'
 
+export { Belong } from './Belong'
+export type { BelongProps } from './Belong'
+
 export { Button } from './Button'
 export type { ButtonProps } from './Button'
 

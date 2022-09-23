@@ -1,33 +1,35 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
-import { Events, Hero, Leadership, Values, Videos, Welcome } from 'components'
+import { Belong, BelongProps, Events, Hero, Leadership, Values, Videos, Welcome } from 'components'
 import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
 import { youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
 type HomeProps = {
-	hero: HeroProps
-	welcome: WelcomeProps
-	values: ValuesProps
-	videos: VideosProps
-	leadership: LeadershipProps
-	events: EventsProps
+	hero: Omit<HeroProps, 'className'>
+	welcome: Omit<WelcomeProps, 'className'>
+	values: Omit<ValuesProps, 'className'>
+	videos: Omit<VideosProps, 'className'>
+	leadership: Omit<LeadershipProps, 'className'>
+	events: Omit<EventsProps, 'className'>
+	belong: Omit<BelongProps, 'className'>
 }
 
-const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, events }) => {
+const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, events, belong }) => {
   return (
 		<>
       <Head>
         <title>Iglesia Forest City</title>
         <meta name="description" content="Iglesia Forest City" />
       </Head>
-			<Hero title={hero.title} text={hero.text} cta={hero.cta} video={hero.video} poster={hero.poster} />
-			{videos.videos.length > 0 && <Videos id={videos.id} title={videos.title} videos={videos.videos} channelURL={videos.channelURL} />}
-			<Welcome id={welcome.id} title={welcome.title} text={welcome.text} backgroundImage={welcome.backgroundImage}/>
-			<Values title={values.title} values={values.values} />
-			<Leadership id={leadership.id} title={leadership.title} leaders={leadership.leaders} />
-			{events.events.length > 0 && <Events id={events.id} title={events.title} events={events.events} />}
+			<Hero {...hero} />
+			{videos.videos.length > 0 && <Videos {...videos} />}
+			<Welcome {...welcome}/>
+			<Values {...values} />
+			<Leadership {...leadership} />
+			{events.events.length > 0 && <Events {...events} />}
+			<Belong {...belong} />
 		</>
   )
 }
@@ -135,6 +137,38 @@ export const getStaticProps: GetStaticProps = async () => {
 						date: '2022-10-15T16:30:00',
 					}
 				]
+			},
+			belong: {
+				title: 'Haz parte de Forest City',
+				support: {
+					title: 'Apoya con tu tiempo y talento',
+					text: `
+						<p>Participa en alguna de las diversas oportunidades de servicio que Forestcity ofrece a través del Ministerio de Servicios Comunitarios. Promovemos el voluntariado por medio de actos concretos de amor y servicio, superando el egoísmo y la indiferencia hacia las necesidades humanas.</p>
+						<p>Algunas de las actividades que realizamos son:
+							<ul>
+								<li>Banco de alimentos con distribuciones semanales</li>
+								<li>Distribución de ropa y alimentos en barrios necesitados</li>
+								<li>Regalos para niños en fechas especiales</li>
+								<li>Programas y eventos enfocados a las familias de la comunidad en celebraciones religiosas</li>
+								<li>Programas de servicios sociales y de ayuda a las necesidades de los miembros de iglesia (ayuda arrendamientos, pago utilidades, búsqueda de trabajo, etc.)</li>
+							</ul>
+						</p>
+					`,
+					picture: '/love-your-neighbour.jpg',
+					// ctaLabel: 'Quiero ayudar',
+					// ctaUrl: '',
+				},
+				offerings: {
+					title: 'Tu ofrenda hace la diferencia',
+					text: `
+						<h3>¿Qué sucede con el dinero que donas?</h3>
+						<p>¡Se cambian vidas! Dios provee para Forestcity a través de los diezmos y ofrendas. Honramos tus donaciones con una mayordomía fiel, prácticas comerciales éticas y plena responsabilidad para que la integridad financiera de la iglesia permanezca irreprochable. Consulta nuestro <a href="#">Informe Anual 2022 aquí</a>. Si tienes alguna pregunta sobre cómo donar o sobre nuestras políticas financieras, llámanos al <a href="tel:+13219876543">(321) 987 6543</a>, o envía un correo electrónico a <a href="mailto:tesoreria@forestcity.com">tesoreria@forestcity.com</a>.</p>
+					`,
+					picture: '/give-thanks.jpg',
+					ctaLabel: 'Donar ahora',
+					donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
+					donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
+				}
 			}
 		}
 	}

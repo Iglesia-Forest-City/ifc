@@ -3,14 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { WrappedHeader, Logo, Nav, Ul, Li, A } from './Header.styles'
 import { Button } from 'components'
-import { getCountry } from 'services/trace';
-
-const adjustDonateURL = async (setURL: Dispatch<SetStateAction<string>>, url: string) => {
-	const country = await getCountry()
-	if (country !== 'US') {
-		setURL(url)
-	}
-}
+import { useDonationUrl } from 'hooks/useDonationUrl';
 
 export type HeaderProps = {
 	className?: string
@@ -22,11 +15,7 @@ export type HeaderProps = {
 }
 
 export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoAltText, fixed, donationsURL, donationsURLInternational }, ref) => {
-	const [donateURL, setDonateURL] = useState(donationsURL)
-
-	useEffect(() => {
-		adjustDonateURL(setDonateURL, donationsURLInternational)
-	}, [donationsURLInternational])
+	const donateURL = useDonationUrl(donationsURL, donationsURLInternational)
 
 	return (
 		<WrappedHeader ref={ref} className={className} $isFixed={fixed}>
