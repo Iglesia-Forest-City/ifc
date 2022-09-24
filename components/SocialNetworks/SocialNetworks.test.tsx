@@ -1,10 +1,10 @@
 import { render, screen } from 'test-utils'
-import { Belong } from './Belong'
+import { SocialNetworks } from './SocialNetworks'
 import { mockData } from './data.mock'
 
-describe('<Belong />', () => {
+describe('<SocialNetworks />', () => {
   it('should render', () => {
-    render(<Belong {...mockData} />)
+    render(<SocialNetworks {...mockData} />)
     const title = screen.getByRole('heading', { level: 2, name: mockData.title })
     expect(title).toBeInTheDocument()
   })

@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
-import { Belong, BelongProps, Events, Hero, Leadership, Values, Videos, Welcome } from 'components'
+import { Belong, BelongProps, Events, Hero, Leadership, SocialNetworks, SocialNetworksProps, Values, Videos, Welcome } from 'components'
 import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
 import { youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
@@ -14,9 +14,10 @@ type HomeProps = {
 	leadership: Omit<LeadershipProps, 'className'>
 	events: Omit<EventsProps, 'className'>
 	belong: Omit<BelongProps, 'className'>
+	socialNetworks: Omit<SocialNetworksProps, 'className'>
 }
 
-const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, events, belong }) => {
+const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, events, belong, socialNetworks }) => {
   return (
 		<>
       <Head>
@@ -30,6 +31,7 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, 
 			<Leadership {...leadership} />
 			{events.events.length > 0 && <Events {...events} />}
 			<Belong {...belong} />
+			<SocialNetworks {...socialNetworks} />
 		</>
   )
 }
@@ -169,6 +171,12 @@ export const getStaticProps: GetStaticProps = async () => {
 					donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
 					donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
 				}
+			},
+			socialNetworks: {
+				title: 'Síguenos en nuestras redes sociales',
+				facebookURL: 'https://www.facebook.com/IglesiaAdventistaForestCity',
+				instagramURL: 'https://www.instagram.com/forestcitysda/',
+				youtubeURL: 'https://www.youtube.com/c/VideosForestCity'
 			}
 		}
 	}

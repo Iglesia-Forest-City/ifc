@@ -4,8 +4,8 @@ import { sectionTitle, sectionWrapper } from 'styles/global.styles'
 
 export const EventsSection = styled(dynamicComponent('section', true))`
 	${sectionWrapper}
-	padding: 2rem 2rem 4rem;
 	background-color: ${({ theme }) => theme.colors.blue.light}33;
+	padding: 2rem 2rem 4rem;
 `
 
 export const Title = styled.h2`

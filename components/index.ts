@@ -26,6 +26,9 @@ export type { LeadershipProps } from './Leadership'
 export { Link } from './Link'
 export type { LinkProps } from './Link'
 
+export { SocialNetworks } from './SocialNetworks'
+export type { SocialNetworksProps } from './SocialNetworks'
+
 export { Values } from './Values'
 export type { ValuesProps } from './Values'
 
