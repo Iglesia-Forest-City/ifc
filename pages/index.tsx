@@ -62,6 +62,22 @@ export const getStaticProps: GetStaticProps = async () => {
 				donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
 				donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
 			},
+			footer: {
+				title: 'Contáctanos',
+				info: {
+					whatsApp: '+14077734067',
+					phone: '+18327429906',
+					email: ['info@iglesiafc.com', 'forestcitysda@gmail.com'],
+					address: {
+						street: '7601 Forest City Rd. #01',
+						city: 'Orlando',
+						state: 'FL',
+						zipCode: '32810',
+						mapEmbedURL: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.1060176933092!2d-81.41443674916161!3d28.62658449101429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e776cb8b7f4ab3%3A0x9d667b7859a8a84f!2sForest%20City%20Spanish%20Seventh-day%20Adventist%20Church!5e0!3m2!1sen!2svg!4v1666972400239!5m2!1sen!2svg',
+					}
+				},
+				copyright: 'Todos los derechos reservados',
+			},
 			hero: {
 				video: '/hero-ifc.mp4',
 				poster: '/hero-poster.png',
@@ -69,24 +85,24 @@ export const getStaticProps: GetStaticProps = async () => {
 				text: 'Dondequiera que te encuentres en la vida, queremos ser el lugar en el que puedas confiar para recibir inspiración, ánimo y apoyo. Nos reunimos cada sábado a las 10:30 am.',
 				cta: {
 					text: 'Ver sermones',
-					href: '#sermones'
+					href: '#sermones',
 				}
 			},
 			videos: {
 				id:'sermones',
 				title: 'Más temas',
 				videos,
-				channelURL: 'https://www.youtube.com/c/VideosForestCity'
+				channelURL: 'https://www.youtube.com/c/VideosForestCity',
 			},
 			welcome: {
 				id: 'acerca-de-nosotros',
 				title: 'Bienvenido a Forest City',
 				text: 'Desde nuestra fundación en 1971, hemos crecido siendo una comunidad diversa de discípulos de Cristo, representando distintas edades, nacionalidades y tradiciones. Nos une  la fe en la Palabra de Dios, nuestro amor por Él y por nuestro prójimo, y  el compromiso al servicio y al evangelio.\nNos alegra que hayas pasado por nuestro sitio web y esperamos que muy pronto te conectes con nosotros en persona y/ o online.',
-				backgroundImage: '/welcome.jpg'
+				backgroundImage: '/welcome.jpg',
 			},
 			values: {
 				title: 'Valores',
-				values: ['Fe', 'Amor', 'Compromiso', 'Respeto']
+				values: ['Fe', 'Amor', 'Compromiso', 'Respeto'],
 			},
 			leadership: {
 				id: 'liderazgo',
@@ -176,7 +192,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				title: 'Síguenos en nuestras redes sociales',
 				facebookURL: 'https://www.facebook.com/IglesiaAdventistaForestCity',
 				instagramURL: 'https://www.instagram.com/forestcitysda/',
-				youtubeURL: 'https://www.youtube.com/c/VideosForestCity'
+				youtubeURL: 'https://www.youtube.com/c/VideosForestCity',
 			}
 		}
 	}

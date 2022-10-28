@@ -11,7 +11,9 @@ export const EventsSection = styled(dynamicComponent('section', true))`
 export const Title = styled.h2`
 	${sectionTitle}
 	margin-bottom: 1em;
-	text-align: left;
+	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+		text-align: left;
+	}
 `
 
 export const EventsWrapper = styled.div`

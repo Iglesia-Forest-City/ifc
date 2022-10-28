@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import type { AppProps as NextAppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { dynamicComponent, Header } from 'components'
+import { dynamicComponent, Header, Footer } from 'components'
+import type { FooterProps } from 'components'
 import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
 
@@ -17,6 +18,7 @@ type CommonProps = {
 		donationsURL: string
 		donationsURLInternational: string
 	},
+	footer: Omit<FooterProps, 'className'>
 }
 
 const Main = dynamicComponent('main')
@@ -47,6 +49,7 @@ const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
 			<Main>
 				<Component {...pageProps} />
 			</Main>
+			<Footer {...pageProps?.footer} />
 		</ThemeProvider>
 	</>
 }
