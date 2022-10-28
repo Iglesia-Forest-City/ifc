@@ -18,6 +18,7 @@ export const StyledFooter = styled(dynamicComponent('footer', true))`
 			grid-template-areas: 'title title'
 				'info form'
 				'copyright copyright';
+			grid-template-columns: 1fr 1fr;
 		}
 	}
 `

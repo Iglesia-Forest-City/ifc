@@ -23,6 +23,9 @@ export type { HeaderProps } from './Header'
 export { Hero } from './Hero'
 export type { HeroProps } from './Hero'
 
+export { Info } from './Info'
+export type { InfoProps } from './Info'
+
 export { Leadership } from './Leadership'
 export type { LeadershipProps } from './Leadership'
 
