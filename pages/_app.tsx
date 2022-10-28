@@ -49,7 +49,7 @@ const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
 			<Main>
 				<Component {...pageProps} />
 			</Main>
-			<Footer {...pageProps?.footer} />
+			{pageProps.footer && <Footer {...pageProps.footer} />}
 		</ThemeProvider>
 	</>
 }

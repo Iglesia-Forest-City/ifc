@@ -38,7 +38,7 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, 
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 	let videos: YouTubeVideoSnippet[]
 	try {
 		const youtubeResponse = await youtube.get<YouTubeDataResponse>('/playlistItems', {

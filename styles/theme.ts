@@ -4,7 +4,7 @@ import type { Colors, MediaQueries, Typography, Vars, ZIndex } from './theme.typ
 export const colors: Colors = {
 	neutral: {
 		dark: '#051923',
-		light: '#FFF',
+		light: '#FFFFFF',
 	},
 	blue: {
 		dark: '#003554',

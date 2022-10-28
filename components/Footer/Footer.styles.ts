@@ -9,7 +9,7 @@ export const StyledFooter = styled(dynamicComponent('footer', true))`
 
 	${Wrapper} {
 		display: grid;
-		gap: 1em;
+		gap: 2em;
 		grid-template-areas: 'title'
 			'form'
 			'info'

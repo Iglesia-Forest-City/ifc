@@ -1,4 +1,4 @@
-import type { InfoProps } from 'components'
+import { ContactForm, InfoProps } from 'components'
 import { Info } from 'components'
 import { ContactFormWrapper, Copyright, InfoWrapper, StyledFooter, Title } from './Footer.styles'
 
@@ -13,7 +13,7 @@ export const Footer = ({ className, title, copyright, info }: FooterProps) => {
 	return (
 		<StyledFooter>
 			<Title className={className}>{title}</Title>
-			<ContactFormWrapper></ContactFormWrapper>
+			<ContactFormWrapper><ContactForm /></ContactFormWrapper>
 			<InfoWrapper><Info {...info} /></InfoWrapper>
 			<Copyright>{`${copyright} © ${new Date().getFullYear()}`}</Copyright>
 		</StyledFooter>

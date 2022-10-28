@@ -11,9 +11,10 @@ export type ButtonProps = {
 	uppercase?: boolean
 	children: ReactNode
 	onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>
+	type?: 'button' | 'submit' | 'reset'
 }
 
-export const Button = ({ className, href, secondary, small, uppercase, children, ...props }: ButtonProps) => {
+export const Button = ({ className, href, secondary, small, uppercase, children, type = 'button', ...props }: ButtonProps) => {
 	let button: JSX.Element
 
 	if (href) {
@@ -47,7 +48,7 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 	} else {
 		button = (
 			<StyledButton
-				type="button"
+				type={type}
 				className={className}
 				secondary={secondary}
 				small={small}
