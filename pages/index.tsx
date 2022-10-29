@@ -3,7 +3,7 @@ import Head from 'next/head'
 import type { AxiosError } from 'axios'
 import { Belong, BelongProps, Events, Hero, Leadership, SocialNetworks, SocialNetworksProps, Values, Videos, Welcome } from 'components'
 import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
-import { youtube } from 'services'
+import { getCalendarEvents, youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
 type HomeProps = {
@@ -41,19 +41,27 @@ export default Home
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 	let videos: YouTubeVideoSnippet[]
 	try {
-		const youtubeResponse = await youtube.get<YouTubeDataResponse>('/playlistItems', {
+		const { data } = await youtube.get<YouTubeDataResponse>('/playlistItems', {
 			params: {
 				playlistId: 'PLOqMc4wUtGMtYS9zz5UoK-dGEwYb1kjZ0',
 				maxResults: 10,
 			},
 		})
-		videos = youtubeResponse.data.items.map(({ snippet }) => snippet)
+		videos = data.items.map(({ snippet }) => snippet)
 	} catch (err) {
 		// eslint-disable-next-line no-console
 		console.error(`Videos: ${(err as AxiosError).message}`)
 		videos = []
 	}
+
+	let events: { name: string, date: string }[]
+	const data = await getCalendarEvents()
+	events = data?.value.map(({ subject, start }) => ({
+		name: subject,
+		date: start.dateTime
+	})) ?? []
 	return {
+		revalidate: 86400,
 		props: {
 			header: {
 				logo: '/fc-logo.svg',
@@ -138,24 +146,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 			events: {
 				id: 'eventos',
 				title: 'Eventos',
-				events: [
-					{
-						name: 'Diálogo abierto',
-						date: '2022-10-14T19:30:00',
-					},
-					{
-						name: 'Escuela Sabática',
-						date: '2022-10-15T09:30:00',
-					},
-					{
-						name: 'Predicación',
-						date: '2022-10-15T11:30:00',
-					},
-					{
-						name: 'Sociedad de Jóvenes',
-						date: '2022-10-15T16:30:00',
-					}
-				]
+				events
 			},
 			belong: {
 				title: 'Haz parte de Forest City',
