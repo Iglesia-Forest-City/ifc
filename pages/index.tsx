@@ -118,25 +118,25 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				title: 'Liderazgo Forest City',
 				leaders: [
 					{
-						picture: '/joel-barrios.png',
+						picture: '/joel-barrios.jpg',
 						name: 'Joel Barrios',
 						role: 'Pastor senior',
 						bio: 'Oriundo de Argentina. Desde niño  fue marcado por muchas experiencias que lo llevaron a experimentar el llamado del Señor y a dedicar su vida a la predicación del Evangelio. Actualmente es pastor de la Iglesia Adventista de Forest City en la Florida.',
 					},
 					{
-						picture: '/joel-barrios.png',
+						picture: '/denar-almonte.jpg',
 						name: 'Denar Almonte',
 						role: 'Ministro de alabanza y adoración',
 						bio: 'Nacido en Chile, actualmente se desempeña como Ministro de alabanza de la Iglesia Adventista de Forest City. Es productor musical en su estudio de grabación junto a su esposa Izzie a quien conoció mientras integraba el grupo Heritage Singers en Español, del cual fue director por 12 años.',
 					},
 					{
-						picture: '/joel-barrios.png',
+						picture: '/angelo-acevedo.jpg',
 						name: 'Angelo Acevedo',
 						role: 'Pastor asociado de jóvenes',
 						bio: 'Nació en la isla del encanto: Puerto Rico. Anteriormente sirvió como pastor en la conferencia de Idaho y como capellán en un centro para jóvenes en riesgo llamado Project Patch. Actualmente termina su maestría en Ministerio Pastoral en la Universidad de Andrews.',
 					},
 					{
-						picture: '/joel-barrios.png',
+						picture: '/daniel-ponce.jpg',
 						name: 'Daniel Ponce',
 						role: 'Pastor asociado',
 						bio: 'Nació en Argentina. Sirvió en Puerto Rico y Argentina como pastor, evangelista, director de radio y tv y productor de programas para radio y tv.',
