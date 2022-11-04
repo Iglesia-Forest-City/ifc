@@ -43,8 +43,8 @@ const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
 				logo={pageProps.header?.logo}
 				logoAltText={pageProps?.header?.logoAltText}
 				fixed={pageProps.header?.fixedHeader}
+
 				donationsURL={pageProps?.header?.donationsURL}
-				donationsURLInternational={pageProps?.header?.donationsURLInternational}
 			/>
 			<Main>
 				<Component {...pageProps} />

@@ -1,4 +1,4 @@
-import type { MouseEventHandler, ReactNode } from 'react'
+import type { HTMLAttributeAnchorTarget, MouseEventHandler, ReactNode } from 'react'
 import Link from 'next/link'
 import { isExternalURL } from 'utils'
 import { StyledButton, StyledLink } from './Button.styles'
@@ -12,9 +12,10 @@ export type ButtonProps = {
 	children: ReactNode
 	onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>
 	type?: 'button' | 'submit' | 'reset'
+	target?: HTMLAttributeAnchorTarget
 }
 
-export const Button = ({ className, href, secondary, small, uppercase, children, type = 'button', ...props }: ButtonProps) => {
+export const Button = ({ className, href, secondary, small, uppercase, children, type = 'button', target, ...props }: ButtonProps) => {
 	let button: JSX.Element
 
 	if (href) {
@@ -27,7 +28,7 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 					secondary={secondary}
 					small={small}
 					uppercase={uppercase}
-					target="_blank"
+					target={target || '_blank'}
 					rel="noopener noreferer"
 					{...props}
 				>{children}</StyledLink>
@@ -40,6 +41,7 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 						secondary={secondary}
 						small={small}
 						uppercase={uppercase}
+						target={target}
 						{...props}
 					>{children}</StyledLink>
 				</Link>

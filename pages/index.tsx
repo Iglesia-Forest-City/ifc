@@ -67,8 +67,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				logo: '/fc-logo.svg',
 				logoAltText: 'Forest City logo',
 				fixedHeader: true,
-				donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
-				donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
+				donationsURL: '/donar',
 			},
 			footer: {
 				id: 'contacto',
@@ -177,8 +176,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 					`,
 					picture: '/give-thanks.jpg',
 					ctaLabel: 'Donar ahora',
-					donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
-					donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
+					ctaUrl: '/donar',
 				}
 			},
 			socialNetworks: {

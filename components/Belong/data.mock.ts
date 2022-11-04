@@ -14,7 +14,6 @@ export const mockData: BelongProps = {
 		text: '<p>Some other text</p>',
 		picture: '/picture2.jpg',
 		ctaLabel: 'Label 2',
-		donationsURL: 'https://donate.com',
-		donationsURLInternational: 'https://int.donate.com',
+		ctaUrl: '/',
 	}
 }
