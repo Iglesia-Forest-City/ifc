@@ -21,7 +21,7 @@ const getAccessToken = async () => {
 	}
 }
 
-export const microsoftGraph = axios.create({
+const microsoftGraph = axios.create({
 	baseURL: 'https://graph.microsoft.com/v1.0/',
 })
 

@@ -71,6 +71,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',
 			},
 			footer: {
+				id: 'contacto',
 				title: 'Contáctanos',
 				info: {
 					whatsApp: '+14077734067',

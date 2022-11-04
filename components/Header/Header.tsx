@@ -1,4 +1,4 @@
-import { Dispatch, forwardRef, SetStateAction, useEffect, useState } from 'react';
+import { forwardRef } from 'react';
 import Image from 'next/image'
 import Link from 'next/link'
 import { WrappedHeader, Logo, Nav, Ul, Li, A } from './Header.styles'
@@ -48,9 +48,9 @@ export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoA
 							<A>Eventos</A>
 						</Link>
 					</Li>
-					{/* <Li>
-						<Button secondary>Contacto</Button>
-					</Li> */}
+					<Li>
+						<Button href="#contacto" secondary>Contacto</Button>
+					</Li>
 					<Li>
 						<Button href={donateURL}>Donar</Button>
 					</Li>

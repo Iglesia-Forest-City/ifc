@@ -45,6 +45,7 @@ export const Li = styled.li`
 
 		${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
 			display: block;
+			text-align: center;
 		}
 	}
 `

@@ -38,6 +38,7 @@ const button = css<StyledButtonProps>`
 	font-size: ${({ small }) => (small ? 12 : 16)}px;
 	font-weight: bold;
 	padding: 0.8em;
+	text-align: center;
 	text-decoration: none;
 	text-transform: ${({ uppercase }) => (uppercase ? 'uppercase' : 'none')};
 	transition: ${({ theme }) => `background-color ${theme.vars.transitionTime}, border-color ${theme.vars.transitionTime}, color ${theme.vars.transitionTime}`};

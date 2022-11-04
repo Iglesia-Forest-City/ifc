@@ -1,6 +1,7 @@
 import { FooterProps } from './Footer'
 
 export const mockData: FooterProps = {
+	id: 'some-id',
   title: 'This is a title',
 	info: {
 		whatsApp: '+14077734067',
