@@ -24,7 +24,7 @@ export const Leadership = ({ id, className, title, leaders }: LeadershipProps) =
 					{leaders.map(({ picture, name, role, bio }) => (
 						<Leader key={`${name}-${role}`}>
 							<ImageWrapper>
-								<Image src={picture} alt={name} height={451} width={298}/>
+								<Image src={picture} alt={name} height={691} width={640}/>
 							</ImageWrapper>
 							<BioWrapper>
 								<Name>{name}</Name>
