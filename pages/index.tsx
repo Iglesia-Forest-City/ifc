@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 	events = data?.value.map(({ subject, start }) => ({
 		name: subject,
 		date: start.dateTime
-	})) ?? []
+	})).sort((a, b) => (new Date(a.date) as any) - (new Date(b.date) as any)) ?? []
 	return {
 		revalidate: 86400,
 		props: {

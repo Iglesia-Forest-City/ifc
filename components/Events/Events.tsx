@@ -9,13 +9,11 @@ export type EventsProps = {
 	events: EventProps[]
 }
 
-export const Events = ({ className, id, title, events }: EventsProps) => {
-	return (
-		<EventsSection id={id}>
-			<Title className={className}>{title}</Title>
-			<EventsWrapper>
-				{events.map(({ name, date }) => <Event key={`${name}-${date}`} name={name} date={date} />)}
-			</EventsWrapper>
-		</EventsSection>
-	)
-}
+export const Events = ({ className, id, title, events }: EventsProps) => (
+	<EventsSection id={id}>
+		<Title className={className}>{title}</Title>
+		<EventsWrapper>
+			{events.map(({ name, date }) => <Event key={`${name}-${date}`} name={name} date={date} />)}
+		</EventsWrapper>
+	</EventsSection>
+)
