@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Button, Spinner } from 'components'
 import { Form, FormOverlay, FormOverlayContent, Input, Label, TextArea } from './ContactForm.styles'
+import axios from 'axios'
 
 export type ContactFormProps = {
 	className?: string
@@ -21,7 +22,12 @@ export const ContactForm = ({ className }: ContactFormProps) => {
 		setSending(true)
 		setOpenOverlay(true)
 		try {
-			// ToDo: Send data to server
+			await axios.post('/api/contact', {
+				name,
+				lastName,
+				email,
+				message
+			})
 		} catch (err) {
 			// eslint-disable-next-line no-console
 			console.error(err)
@@ -31,11 +37,15 @@ export const ContactForm = ({ className }: ContactFormProps) => {
 	}
 
 	const clearForm = () => {
+		setName('')
+		setLastName('')
+		setEmail('')
+		setMessage('')
+	}
+
+	const setBack = () => {
 		if (!error) {
-			setName('')
-			setLastName('')
-			setEmail('')
-			setMessage('')
+			clearForm()
 		} else {
 			setError(false)
 		}
@@ -67,7 +77,7 @@ export const ContactForm = ({ className }: ContactFormProps) => {
 					<FormOverlayContent>
 						{!error && <p>{`${name}, hemos enviado tu mensaje. Alguien se pondrá en contacto contigo muy pronto.`}</p>}
 						{error && <p>Algo ha sucedido y no hemos podido enviar tu mensaje. Por favir inténtalo de nuevo.</p>}
-						<Button onClick={clearForm}>Regresar</Button>
+						<Button onClick={setBack}>Regresar</Button>
 					</FormOverlayContent>
 				)}
 			</FormOverlay>
