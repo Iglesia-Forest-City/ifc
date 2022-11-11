@@ -8,7 +8,7 @@ describe('<Leadership />', () => {
     const title = screen.getByRole('heading', { level: 2, name: mockData.title})
     expect(title).toBeInTheDocument()
 
-		mockData.leaders.forEach(({ picture, name, role, bio }) => {
+		mockData.leaders.forEach(({ name, role }) => {
 			const image = screen.getByAltText(name)
 			const leaderName = screen.getByRole('heading', { level: 3, name })
 			const leaderRole = screen.getByRole('heading', { level: 4, name: role })

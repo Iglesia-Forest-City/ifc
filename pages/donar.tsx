@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { GetStaticProps } from 'next'
+import type { GetStaticProps } from 'next'
 import { getCountry } from 'services'
 
 export type DonateProps = {

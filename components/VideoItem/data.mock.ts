@@ -1,4 +1,4 @@
-import { VideoItemProps } from './VideoItem'
+import type { VideoItemProps } from './VideoItem'
 
 export const mockData: VideoItemProps = {
 	id: 'video-id',

@@ -1,4 +1,4 @@
-import { SocialNetworksProps } from './SocialNetworks'
+import type { SocialNetworksProps } from './SocialNetworks'
 
 export const mockData: SocialNetworksProps = {
   title: 'Síguenos en nuestras redes sociales',

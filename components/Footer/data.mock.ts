@@ -1,4 +1,4 @@
-import { FooterProps } from './Footer'
+import type { FooterProps } from './Footer'
 
 export const mockData: FooterProps = {
 	id: 'some-id',

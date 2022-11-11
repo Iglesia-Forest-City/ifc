@@ -1,4 +1,4 @@
-import { EventProps } from './Event'
+import type { EventProps } from './Event'
 
 export const mockData: EventProps = {
   name: 'name',

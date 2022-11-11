@@ -1,4 +1,4 @@
-import { InfoProps } from './Info'
+import type { InfoProps } from './Info'
 
 export const mockData: InfoProps = {
   whatsApp: '+14077734067',

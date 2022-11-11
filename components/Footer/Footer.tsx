@@ -1,5 +1,6 @@
-import { ContactForm, InfoProps } from 'components'
+import { ContactForm } from 'components'
 import { Info } from 'components'
+import type { InfoProps } from 'components';
 import { ContactFormWrapper, Copyright, InfoWrapper, StyledFooter, Title } from './Footer.styles'
 
 export type FooterProps = {

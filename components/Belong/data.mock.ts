@@ -1,4 +1,4 @@
-import { BelongProps } from './Belong'
+import type { BelongProps } from './Belong'
 
 export const mockData: BelongProps = {
 	title: 'Main title',
