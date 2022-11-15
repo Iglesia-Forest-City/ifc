@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import type { AppProps as NextAppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { dynamicComponent, Header, Footer } from 'components'
-import type { FooterProps } from 'components'
+import { dynamicComponent, Header, Footer, RadioPlayer } from 'components'
+import type { FooterProps , RadioPlayerProps} from 'components'
 import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
 
@@ -17,8 +17,9 @@ type CommonProps = {
 		fixedHeader: boolean
 		donationsURL: string
 		donationsURLInternational: string
-	},
+	}
 	footer: Omit<FooterProps, 'className'>
+	radio: Omit<RadioPlayerProps, 'className'>
 }
 
 const Main = dynamicComponent('main')
@@ -48,6 +49,7 @@ const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
 			/>
 			<Main>
 				<Component {...pageProps} />
+				<RadioPlayer {...pageProps.radio} />
 			</Main>
 			{pageProps.footer && <Footer {...pageProps.footer} />}
 		</ThemeProvider>

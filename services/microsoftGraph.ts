@@ -1,6 +1,6 @@
 import axios from 'axios'
 import type { AxiosResponse } from 'axios'
-import { AccessTokenRequest, AccessTokenResponse, CalendarResponse } from './microsoftGraph.types';
+import type { AccessTokenRequest, AccessTokenResponse, CalendarResponse } from './microsoftGraph.types';
 
 const getAccessToken = async () => {
 	console.log('Getting access token...')
