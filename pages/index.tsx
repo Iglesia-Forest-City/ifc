@@ -1,8 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
-import { Belong, BelongProps, Events, Hero, Leadership, SocialNetworks, SocialNetworksProps, Values, Videos, Welcome } from 'components'
-import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps } from 'components'
+import { Belong, Events, Hero, Leadership, SocialNetworks, Values, Videos, Welcome } from 'components'
+import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps, BelongProps, SocialNetworksProps } from 'components'
 import { getCalendarEvents, youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
@@ -54,12 +54,11 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 		videos = []
 	}
 
-	let events: { name: string, date: string }[]
 	const data = await getCalendarEvents()
-	events = data?.value.map(({ subject, start }) => ({
+	const events = data?.value.map(({ subject, start }) => ({
 		name: subject,
 		date: start.dateTime
-	})).sort((a, b) => (new Date(a.date) as any) - (new Date(b.date) as any)) ?? []
+	})).sort((a, b) => (new Date(a.date) as never) - (new Date(b.date) as never)) ?? []
 	return {
 		revalidate: 86400,
 		props: {
@@ -86,6 +85,11 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 					},
 				},
 				copyright: 'Todos los derechos reservados',
+			},
+			radio: {
+				logo: '/fcradio-logo.png',
+				logoAltText: 'Forest City Radio',
+				url: '/live-radio'
 			},
 			hero: {
 				video: '/opener.mp4',
@@ -184,7 +188,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				facebookURL: 'https://www.facebook.com/IglesiaAdventistaForestCity',
 				instagramURL: 'https://www.instagram.com/forestcitysda/',
 				youtubeURL: 'https://www.youtube.com/c/VideosForestCity',
-			}
-		}
+			},
+		},
 	}
 }

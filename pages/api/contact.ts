@@ -2,10 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { sendContactForm } from 'services'
 import type { ContactFormRequest, ContactFormResponse } from 'services';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ContactFormResponse>
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ContactFormResponse>) {
 	if (req.method === 'POST') {
 		const data: ContactFormRequest = {
 			email: req.body.email,

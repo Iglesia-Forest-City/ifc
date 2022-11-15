@@ -35,6 +35,9 @@ export type { LeadershipProps } from './Leadership'
 export { Link } from './Link'
 export type { LinkProps } from './Link'
 
+export { RadioPlayer } from './RadioPlayer'
+export type { RadioPlayerProps } from './RadioPlayer'
+
 export { SocialNetworks } from './SocialNetworks'
 export type { SocialNetworksProps } from './SocialNetworks'
 

@@ -9,6 +9,12 @@ const nextConfig = {
 			fileName: false,
 		},
 	},
+	rewrites: async () => [
+		{
+			source: '/live-radio',
+			destination: `${process.env.RADIO_SERVER}${process.env.RADIO_SERVER_NAME}`,
+		},
+	],
 };
 
 module.exports = nextConfig;
