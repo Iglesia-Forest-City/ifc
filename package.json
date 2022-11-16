@@ -1,12 +1,12 @@
 {
   "name": "ifc",
   "description": "Forest City SDA church website",
-  "version": "0.1.7",
+  "version": "0.1.71",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node_modules/next/dist/bin/next start -p $PORT",
     "lint": "next lint",
     "prepare": "husky install",
     "test": "jest",
@@ -51,12 +51,8 @@
     "ts-node": "10.9.1",
     "typescript": "4.9.3"
   },
-  "engines": {
-    "node": "16",
-    "yarn": "1.22.15"
-  },
   "volta": {
-    "node": "16.15.0",
-    "yarn": "1.22.15"
+    "node": "18.12.1",
+    "yarn": "1.17.3"
   }
 }

@@ -39,6 +39,7 @@ const ioHandler = (req: NextApiRequest, res: SocketIONextApiResponse) => {
 				console.log('Emitting metadata...')
 			}
 		} catch (err) {
+			console.warn('Polling Error:', err)
 			io.emit('pollingError', err);
 		}
 	}
