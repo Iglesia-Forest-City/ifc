@@ -5,7 +5,7 @@ import { sectionWrapper, sectionTitle } from 'styles'
 export const StyledFooter = styled(dynamicComponent('footer', true))`
 	${sectionWrapper}
 	background-color: ${({ theme }) => theme.colors.blue.light}33;
-	padding: 2rem 2rem 4rem;
+	padding: 2rem 2rem 8rem;
 
 	${Wrapper} {
 		display: grid;

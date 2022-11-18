@@ -25,7 +25,6 @@ export const GlobalStyle = createGlobalStyle`
 		font-family: ${({ theme }) => theme.typography.primaryFont};
 		height: 100%;
 		margin: 0 auto;
-		max-width: ${({ theme }) => theme.vars.desktopUpperBoundary}px;
 		min-height: 100vh;
 		-webkit-font-smoothing: antialiased;
 	}
@@ -69,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const sectionWrapper = css`
-	max-width: ${({ theme }) => theme.vars.desktopUpperBoundary}px;
+	margin: 0 auto;
 	padding: 1rem 2rem;
 	width: 100%;
 `

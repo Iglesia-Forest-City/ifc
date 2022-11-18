@@ -14,10 +14,15 @@ export const WrappedPlayer = styled(dynamicComponent('section', true))`
 		align-items: center;
 		display: grid;
 		gap: 1em;
-		grid-template-areas: 'logo controls metadata audience';
-		grid-template-columns: 1fr 2fr 8fr 1fr;
+		grid-template-areas: 'controls controls controls logo'
+			'metadata metadata metadata audience';
 		justify-content: space-between;
   	place-items: center;
+
+		${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+			grid-template-areas: 'logo controls metadata audience';
+			grid-template-columns: 1fr 2fr 8fr 1fr;
+		}
 	}
 `
 
@@ -27,10 +32,28 @@ export const ControlButton = styled.button`
 	border: none;
 	color: inherit;
 	cursor: pointer;
-	font-size: 32px;
+	font-size: 64px;
 	line-height: 0;
 	padding: 0;
 	transition: ${({ theme }) => `color ${theme.vars.transitionTime}`};
+
+	&:disabled {
+		opacity: 0.5
+	}
+
+	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+		font-size: 32px;
+	}
+`
+
+export const ToggleVolButton = styled(ControlButton)`
+	font-size: 32px;
+	margin-left: 0.5em;
+	padding: 0;
+
+	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+		font-size: 16px;
+	}
 `
 
 const thumbStyles = css`
@@ -52,6 +75,10 @@ export const VolumeSlider = styled.input`
 	appearance: none;
 	background: transparent;
 	width: 100%;
+
+	&:disabled {
+		opacity: 0.5;
+	}
 
 	&::-webkit-slider-thumb {
 		${thumbStyles}

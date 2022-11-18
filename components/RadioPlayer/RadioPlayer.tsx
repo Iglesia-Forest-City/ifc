@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { ChangeEvent} from 'react';
 import Image from 'next/image'
 import { CgPlayButtonO, CgPlayPauseR, CgPlayStopR } from 'react-icons/cg'
-import { Artist, Audience, AudienceNumber, ControlButton, Controls, Metadata, RadioLogo, Title, VolumeSlider, WrappedPlayer } from './RadioPlayer.styles'
+import { Artist, Audience, AudienceNumber, ControlButton, Controls, Metadata, RadioLogo, Title, ToggleVolButton, VolumeSlider, WrappedPlayer } from './RadioPlayer.styles'
 import { Spinner } from 'components'
 import type { Socket } from 'socket.io-client'
 import { connectRadioSocket } from 'services'
@@ -76,7 +76,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 				current.src = url
 				current.load()
 				socketRef.current = await connectRadioSocket()
-				socketRef.current.on('radioMetadata', onMetadataChange)
+				socketRef.current?.on('radioMetadata', onMetadataChange)
 			}
 			await current.play()
 			setIsLoading(false)
@@ -138,7 +138,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 				<audio ref={audioPlayer}/>
 				<ControlButton type="button" title="play" onClick={togglePlay} disabled={isLoading}>{isLoading ? <Spinner size={32} /> : togglePlayIcon}</ControlButton>
 				<ControlButton type="button" title="stop" onClick={stop} disabled={isLoading || !isLoaded}><CgPlayStopR /></ControlButton>
-				<ControlButton type="button" title="volume" onClick={toggleVolume} disabled={isLoading || !isLoaded}>{toggleVolumeIcon}</ControlButton>
+				<ToggleVolButton type="button" title="volume" onClick={toggleVolume} disabled={isLoading || !isLoaded}>{toggleVolumeIcon}</ToggleVolButton>
 				<VolumeSlider title="volume" type="range" min={0} max={1} step={0.05} value={volume} onChange={onVolumeChange} disabled={isLoading || !isLoaded} />
 			</Controls>
 			<Metadata>
