@@ -19,7 +19,7 @@ export const connectRadioSocket = async () => {
 		socket = io({
 			secure: true,
 			reconnection: true,
-			// transports: ['websocket'],
+			transports: ['websocket'],
 			rejectUnauthorized: false,
 		})
 

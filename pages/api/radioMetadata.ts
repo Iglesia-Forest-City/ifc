@@ -4,6 +4,7 @@ import type { ServerOptions } from 'socket.io';
 import { Server } from 'socket.io'
 import { getRadioMetadata } from 'services';
 import type { SimplifiedMetadata , RadioSocketServerEvents } from 'services';
+import axios from 'axios';
 
 interface SocketIONextApiResponse extends NextApiResponse {
 	socket: Socket & {
@@ -40,7 +41,10 @@ const ioHandler = (req: NextApiRequest, res: SocketIONextApiResponse) => {
 			}
 		} catch (err) {
 			console.warn('Polling Error:', err)
-			io.emit('pollingError', err);
+			io.emit('pollingError', err)
+			if (axios.isAxiosError(err)) {
+				console.warn('Base URL:', err.config?.baseURL)
+			}
 		}
 	}
 

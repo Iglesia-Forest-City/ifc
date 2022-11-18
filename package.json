@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node_modules/next/dist/bin/next start -p $PORT",
+    "start": "node server.js",
     "lint": "next lint",
     "prepare": "husky install",
     "test": "jest",
@@ -21,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-icons": "4.6.0",
     "react-is": "18.2.0",
+    "sharp": "0.31.2",
     "socket.io": "4.5.3",
     "socket.io-client": "4.5.3",
     "styled-components": "5.3.6"

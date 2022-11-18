@@ -15,6 +15,7 @@ const nextConfig = {
 			destination: `${process.env.RADIO_SERVER}${process.env.RADIO_SERVER_NAME}`,
 		},
 	],
+	output: 'standalone',
 };
 
 module.exports = nextConfig;
