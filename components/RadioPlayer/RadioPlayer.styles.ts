@@ -14,7 +14,8 @@ export const WrappedPlayer = styled(dynamicComponent('section', true))`
 		align-items: center;
 		display: grid;
 		gap: 1em;
-		grid-template-areas: 'controls controls controls logo'
+		grid-template-areas:
+			'controls controls controls logo'
 			'metadata metadata metadata audience';
 		justify-content: space-between;
   	place-items: center;
@@ -31,10 +32,13 @@ export const ControlButton = styled.button`
 	background: none;
 	border: none;
 	color: inherit;
+	display: grid;
 	cursor: pointer;
 	font-size: 64px;
 	line-height: 0;
 	padding: 0;
+	place-items: center;
+	position: relative;
 	transition: ${({ theme }) => `color ${theme.vars.transitionTime}`};
 
 	&:disabled {
@@ -48,7 +52,6 @@ export const ControlButton = styled.button`
 
 export const ToggleVolButton = styled(ControlButton)`
 	font-size: 32px;
-	margin-left: 0.5em;
 	padding: 0;
 
 	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
@@ -121,9 +124,14 @@ export const RadioLogo = styled.div`
 
 export const Controls = styled.div`
 	align-items: center;
-	display: flex;
+	display: grid;
 	gap: 0.5em;
 	grid-area: controls;
+	grid-template-columns: 64px 64px 32px auto;
+
+	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
+		grid-template-columns: 32px 32px 16px auto;
+	}
 `
 
 export const Metadata = styled.div`
@@ -139,6 +147,10 @@ export const Title = styled.span`
 
 export const Artist = styled.span`
 	font-family: ${({ theme }) => theme.typography.secondaryFont};
+`
+
+export const Album = styled.span`
+	font-weight: 300;
 `
 
 type AudienceProps = {

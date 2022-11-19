@@ -14,6 +14,7 @@ export type Source = {
 	stream_start_iso8601: string
 	title: string
 	artist: string
+	album: string
 	dummy: unknown
 }
 
@@ -31,7 +32,7 @@ export type RadioMetadataResponse = {
 	icestats: IceStats
 }
 
-export type SimplifiedMetadata = Pick<Source, 'listeners' | 'title' | 'artist'>
+export type SimplifiedMetadata = Pick<Source, 'listeners' | 'title' | 'artist' | 'album'>
 
 export interface RadioSocketServerEvents {
 	radioMetadata: (metadata: SimplifiedMetadata) => void

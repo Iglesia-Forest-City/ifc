@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { ChangeEvent} from 'react';
 import Image from 'next/image'
 import { CgPlayButtonO, CgPlayPauseR, CgPlayStopR } from 'react-icons/cg'
-import { Artist, Audience, AudienceNumber, ControlButton, Controls, Metadata, RadioLogo, Title, ToggleVolButton, VolumeSlider, WrappedPlayer } from './RadioPlayer.styles'
+import { Album, Artist, Audience, AudienceNumber, ControlButton, Controls, Metadata, RadioLogo, Title, ToggleVolButton, VolumeSlider, WrappedPlayer } from './RadioPlayer.styles'
 import { Spinner } from 'components'
 import type { Socket } from 'socket.io-client'
 import { connectRadioSocket } from 'services'
@@ -28,6 +28,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 	const [isMuted, setIsMuted] = useState(false)
 	const [artist, setArtist] = useState<string>()
 	const [title, setTitle] = useState<string>()
+	const [album, setAlbum] = useState<string>()
 	const [currentListeners, setCurrentListeners] = useState<number>()
 
 	useEffect(() => {
@@ -120,10 +121,11 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 		setVolume(+e.currentTarget.value)
 	}
 
-	const onMetadataChange = ({ listeners, title, artist }: SimplifiedMetadata) => {
+	const onMetadataChange = ({ listeners, title, artist, album }: SimplifiedMetadata) => {
 		setCurrentListeners(listeners)
 		setArtist(artist)
 		setTitle(title)
+		setAlbum(album)
 	}
 
 	const togglePlayIcon = isPlaying ? <CgPlayPauseR /> : <CgPlayButtonO />
@@ -144,6 +146,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 			<Metadata>
 				<Title>{title}</Title>
 				<Artist>{artist}</Artist>
+				<Album>{album}</Album>
 			</Metadata>
 			<Audience $isLive={isPlaying}>
 				<FiRadio />

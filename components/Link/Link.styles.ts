@@ -24,6 +24,8 @@ export const StyledLink = styled.a`
 	}
 
 	&:hover {
+		color: inherit;
+
 		&::before {
 			left: 30%;
 			right: -30%;

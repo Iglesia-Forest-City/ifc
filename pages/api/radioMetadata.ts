@@ -31,8 +31,8 @@ const ioHandler = (req: NextApiRequest, res: SocketIONextApiResponse) => {
 	const pollMetadata = async () => {
 		try {
 			const { data: { icestats: { source } } } = await getRadioMetadata()
-			const { artist,listeners, title } = source
-			const simplifiedMetadata = { artist, listeners, title }
+			const { album, artist,listeners, title } = source
+			const simplifiedMetadata = { album, artist, listeners, title }
 			const metadataHasChanged = JSON.stringify(radioData) !== JSON.stringify(simplifiedMetadata)
 			if (metadataHasChanged) {
 				radioData = simplifiedMetadata
