@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import axios from 'axios'
 import type { AxiosResponse } from 'axios'
 import type { AccessTokenRequest, AccessTokenResponse, CalendarResponse } from './microsoftGraph.types';
@@ -28,11 +29,8 @@ microsoftGraph.interceptors.request.use(async (config) => {
 	if (!process.env.MICROSOFT_GRAPH_ACCESS_TOKEN) {
 		await getAccessToken()
 	}
-	const headers = {
-		...config.headers,
-		authorization: process.env.MICROSOFT_GRAPH_ACCESS_TOKEN
-	}
-	return { ...config, headers }
+	config.headers.Authorization = process.env.MICROSOFT_GRAPH_ACCESS_TOKEN;
+	return config;
 })
 
 const fetchCalendarEvents = async () => {
