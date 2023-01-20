@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
 import { Belong, Events, Hero, Leadership, SocialNetworks, Values, Videos, Welcome } from 'components'
-import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps, BelongProps, SocialNetworksProps } from 'components'
+import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps, BelongProps, SocialNetworksProps, EventProps} from 'components'
 import { getCalendarEvents, youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
@@ -54,11 +54,18 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 		videos = []
 	}
 
-	const data = await getCalendarEvents()
-	const events = data?.value.map(({ subject, start }) => ({
-		name: subject,
-		date: start.dateTime
-	})).sort((a, b) => (new Date(a.date) as never) - (new Date(b.date) as never)) ?? []
+	let events: EventProps[];
+	try {
+		const data = await getCalendarEvents()
+		events = data?.value.map(({ subject, start }) => ({
+			name: subject,
+			date: start.dateTime
+		})).sort((a, b) => (new Date(a.date) as never) - (new Date(b.date) as never)) ?? []
+	} catch(err) {
+		// eslint-disable-next-line no-console
+		console.error(`Events: ${(err as AxiosError).message}`)
+		events = []
+	}
 	return {
 		revalidate: 86400,
 		props: {
