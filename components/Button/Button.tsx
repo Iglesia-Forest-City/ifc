@@ -1,5 +1,4 @@
 import type { HTMLAttributeAnchorTarget, MouseEventHandler, ReactNode } from 'react'
-import Link from 'next/link'
 import { isExternalURL } from 'utils'
 import { StyledButton, StyledLink } from './Button.styles'
 
@@ -20,32 +19,18 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 
 	if (href) {
 		const isExternal = isExternalURL(href)
-		if (isExternal) {
-			button = (
-				<StyledLink
-					className={className}
-					href={href}
-					$secondary={secondary}
-					$small={small}
-					$uppercase={uppercase}
-					target={target || '_blank'}
-					rel="noopener noreferer"
-					{...props}
-				>{children}</StyledLink>
-			)
-		} else {
-			button = (
-				<StyledLink
-					href={href}
-					className={className}
-					$secondary={secondary}
-					$small={small}
-					$uppercase={uppercase}
-					target={target}
-					{...props}
-				>{children}</StyledLink>
-			)
-		}
+		button = (
+			<StyledLink
+				className={className}
+				href={href}
+				$secondary={secondary}
+				$small={small}
+				$uppercase={uppercase}
+				target={isExternal ? target || '_blank' : target}
+				rel={isExternal ? 'noopener noreferer' : undefined}
+				{...props}
+			>{children}</StyledLink>
+		)
 	} else {
 		button = (
 			<StyledButton
