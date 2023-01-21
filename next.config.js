@@ -4,7 +4,6 @@ const nextConfig = {
 	reactStrictMode: true,
 	compiler: {
 		styledComponents: {
-			displayName: true,
 			pure: true,
 			fileName: false,
 		},
@@ -16,6 +15,7 @@ const nextConfig = {
 		},
 	],
 	output: 'standalone',
+	productionBrowserSourceMaps: true,
 };
 
 module.exports = nextConfig;

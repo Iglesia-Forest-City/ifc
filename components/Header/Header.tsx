@@ -16,32 +16,22 @@ export const Header = forwardRef<Element, HeaderProps>(({ className, logo, logoA
 	<WrappedHeader ref={ref} className={className} $isFixed={fixed}>
 		<Logo>
 			<Link href="/">
-				<a>
-					<Image src={logo} alt={logoAltText} width={80} height={56} />
-				</a>
+				<Image src={logo} alt={logoAltText} width={80} height={56} priority />
 			</Link>
 		</Logo>
 		<Nav>
 			<Ul>
 				<Li>
-					<Link href="#sermones" passHref>
-						<A>Sermones</A>
-					</Link>
+					<A href="#sermones">Sermones</A>
 				</Li>
 				<Li>
-					<Link href="#acerca-de-nosotros" passHref>
-						<A>Acerca de</A>
-					</Link>
+					<A href="#acerca-de-nosotros">Acerca de</A>
 				</Li>
 				<Li>
-					<Link href="#liderazgo" passHref>
-						<A>Liderazgo</A>
-					</Link>
+					<A href="#liderazgo">Liderazgo</A>
 				</Li>
 				<Li>
-					<Link href="#eventos" passHref>
-						<A>Eventos</A>
-					</Link>
+					<A href="#eventos">Eventos</A>
 				</Li>
 				<Li>
 					<Button href="#contacto" secondary>Contacto</Button>

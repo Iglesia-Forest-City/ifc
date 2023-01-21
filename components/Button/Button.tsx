@@ -25,9 +25,9 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 				<StyledLink
 					className={className}
 					href={href}
-					secondary={secondary}
-					small={small}
-					uppercase={uppercase}
+					$secondary={secondary}
+					$small={small}
+					$uppercase={uppercase}
 					target={target || '_blank'}
 					rel="noopener noreferer"
 					{...props}
@@ -35,16 +35,15 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 			)
 		} else {
 			button = (
-				<Link href={href} passHref>
-					<StyledLink
-						className={className}
-						secondary={secondary}
-						small={small}
-						uppercase={uppercase}
-						target={target}
-						{...props}
-					>{children}</StyledLink>
-				</Link>
+				<StyledLink
+					href={href}
+					className={className}
+					$secondary={secondary}
+					$small={small}
+					$uppercase={uppercase}
+					target={target}
+					{...props}
+				>{children}</StyledLink>
 			)
 		}
 	} else {
@@ -52,9 +51,9 @@ export const Button = ({ className, href, secondary, small, uppercase, children,
 			<StyledButton
 				type={type}
 				className={className}
-				secondary={secondary}
-				small={small}
-				uppercase={uppercase}
+				$secondary={secondary}
+				$small={small}
+				$uppercase={uppercase}
 				{...props}
 			>{children}</StyledButton>
 		)

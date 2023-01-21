@@ -118,8 +118,11 @@ export const VolumeSlider = styled.input`
 
 export const RadioLogo = styled.div`
 	align-items: center;
+	aspect-ratio: 2.7888;
 	display: flex;
 	grid-area: logo;
+	position: relative;
+	width: 100%;
 `
 
 export const Controls = styled.div`

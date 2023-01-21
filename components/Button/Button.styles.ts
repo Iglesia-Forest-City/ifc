@@ -1,14 +1,15 @@
+import Link from 'next/link'
 import styled, { css } from 'styled-components'
 
 interface StyledButtonProps {
-	readonly secondary?: boolean
-	readonly small?: boolean
-	readonly uppercase?: boolean
+	readonly $secondary?: boolean
+	readonly $small?: boolean
+	readonly $uppercase?: boolean
 }
 
 const button = css<StyledButtonProps>`
-	${({ theme, secondary }) => {
-		if (secondary) {
+	${({ theme, $secondary }) => {
+		if ($secondary) {
 			return css`
 				background-color: transparent;
 				border: 1px solid ${theme.colors.neutral.light};
@@ -35,16 +36,16 @@ const button = css<StyledButtonProps>`
 	border-radius: 6px;
 	cursor: pointer;
 	display: inline-block;
-	font-size: ${({ small }) => (small ? 12 : 16)}px;
+	font-size: ${({ $small }) => ($small ? 12 : 16)}px;
 	font-weight: bold;
 	padding: 0.8em;
 	text-align: center;
 	text-decoration: none;
-	text-transform: ${({ uppercase }) => (uppercase ? 'uppercase' : 'none')};
+	text-transform: ${({ $uppercase }) => ($uppercase ? 'uppercase' : 'none')};
 	transition: ${({ theme }) => `background-color ${theme.vars.transitionTime}, border-color ${theme.vars.transitionTime}, color ${theme.vars.transitionTime}`};
 `
 
-export const StyledLink = styled.a<StyledButtonProps>`
+export const StyledLink = styled(Link)<StyledButtonProps>`
 	${button}
 `
 

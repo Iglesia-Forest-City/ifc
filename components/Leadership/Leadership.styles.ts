@@ -52,11 +52,12 @@ export const Leader = styled.article`
 const frameBorderWidth = '3px'
 
 export const ImageWrapper = styled.figure`
+	aspect-ratio: 0.927;
 	margin: 0;
 	position: relative;
 	z-index: 0;
 
-	& > * {
+	& > img {
 		transform: scale(1.1);
 		vertical-align: middle;
 	}

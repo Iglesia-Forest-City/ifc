@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { vars } from 'styles';
 import { Title, LeadershipSection, Leader, Leaders, BioWrapper, Name, Role, ImageWrapper, Bio, LeadersWrapper } from './Leadership.styles';
 
 type Leader = {
@@ -24,7 +25,7 @@ export const Leadership = ({ id, className, title, leaders }: LeadershipProps) =
 					{leaders.map(({ picture, name, role, bio }) => (
 						<Leader key={`${name}-${role}`}>
 							<ImageWrapper>
-								<Image src={picture} alt={name} height={691} width={640}/>
+								<Image src={picture} alt={name} fill sizes={`(max-width: ${vars.phoneUpperBoundary - 1}px) 100vw, 25vw`} />
 							</ImageWrapper>
 							<BioWrapper>
 								<Name>{name}</Name>

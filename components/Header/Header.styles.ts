@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Link from 'next/link'
 import { transitions } from 'polished'
 import { dynamicComponent, Wrapper } from 'components'
 import { sectionWrapper } from 'styles'
@@ -50,7 +51,7 @@ export const Li = styled.li`
 	}
 `
 
-export const A = styled.a`
+export const A = styled(Link)`
 	color: ${({ theme }) => theme.colors.neutral.light};
 	font-weight: bold;
 	text-align: center;

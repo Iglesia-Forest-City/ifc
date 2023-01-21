@@ -14,7 +14,11 @@ const processData = (data: string) => {
 }
 
 export const getCountry = async () => {
-	const { data } = await trace.get('')
-	const { loc } = processData(data)
-	return loc
+	try {
+		const { data } = await trace.get('')
+		const { loc } = processData(data)
+		return loc
+	} catch(err) {
+		console.error(err)
+	}
 }

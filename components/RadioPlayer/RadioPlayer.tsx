@@ -134,7 +134,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 	return (
 		<WrappedPlayer className={className}>
 			<RadioLogo>
-				<Image src={logo} alt={logoAltText} width={251} height={90} />
+				<Image src={logo} alt={logoAltText} fill sizes="100vw" />
 			</RadioLogo>
 			<Controls>
 				<audio ref={audioPlayer}/>
