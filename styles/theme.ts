@@ -1,5 +1,9 @@
 import type { DefaultTheme } from 'styled-components'
 import type { Colors, MediaQueries, Typography, Vars, ZIndex } from './theme.types'
+import { Playfair_Display, Plus_Jakarta_Sans } from '@next/font/google'
+
+const playfairDisplay = Playfair_Display({ subsets: ['latin']})
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const colors: Colors = {
 	neutral: {
@@ -15,8 +19,8 @@ export const colors: Colors = {
 }
 
 export const typography: Typography = {
-	primaryFont: '\'Plus Jakarta Sans\', sans-serif',
-	secondaryFont: '\'Playfair Display\', serif',
+	primaryFont: plusJakartaSans.style.fontFamily,
+	secondaryFont: playfairDisplay.style.fontFamily,
 	typeScale: {
 		h1: '1.8rem',
 		h2: '1.6rem',
