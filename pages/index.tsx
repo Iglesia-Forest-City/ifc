@@ -183,7 +183,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 					title: 'Tu ofrenda hace la diferencia',
 					text: `
 						<h3>¿Qué sucede con el dinero que donas?</h3>
-						<p>¡Se cambian vidas! Dios provee para Forestcity a través de los diezmos y ofrendas. Honramos tus donaciones con una mayordomía fiel, prácticas comerciales éticas y plena responsabilidad para que la integridad financiera de la iglesia permanezca irreprochable. Consulta nuestro <a href="#">Informe Anual 2022 aquí</a>. Si tienes alguna pregunta sobre cómo donar o sobre nuestras políticas financieras, llámanos al <a href="tel:+13219876543">(321) 987 6543</a>, o envía un correo electrónico a <a href="mailto:tesoreria@forestcity.com">tesoreria@forestcity.com</a>.</p>
+						<p>¡Se cambian vidas! Dios provee para Forestcity a través de los diezmos y ofrendas. Honramos tus donaciones con una mayordomía fiel, prácticas comerciales éticas y plena responsabilidad para que la integridad financiera de la iglesia permanezca irreprochable. Si tienes alguna pregunta sobre cómo donar o sobre nuestras políticas financieras, llámanos al <a href="tel:+13219876543">(321) 987 6543</a>, o envía un correo electrónico a <a href="mailto:tesoreria@forestcity.com">tesoreria@forestcity.com</a>.</p>
 					`,
 					picture: '/give-thanks.jpg',
 					ctaLabel: 'Donar ahora',
