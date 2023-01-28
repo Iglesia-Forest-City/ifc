@@ -8,6 +8,13 @@ const nextConfig = {
 			fileName: false,
 		},
 	},
+	redirects: async () => [
+		{
+			source: '/donacion',
+			destination: '/donar',
+			permanent: true
+		}
+	],
 	rewrites: async () => [
 		{
 			source: '/live-radio',
