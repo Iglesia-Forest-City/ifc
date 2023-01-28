@@ -1,10 +1,11 @@
 import { IoLogoWhatsapp, IoMdMail } from 'react-icons/io'
 import { HiPhone, HiLocationMarker } from 'react-icons/hi'
 import { InfoItem, InfoLink, InfoText, MapFrame } from './Info.styles'
+import { cleanPhoneNumber } from 'utils'
 
 export type InfoProps = {
 	whatsApp: string
-	phone: string
+	phone?: string
 	email: string[]
 	address: {
 		street: string
@@ -21,12 +22,12 @@ export const Info = ({ whatsApp, phone, email, address }: InfoProps) => {
 		<>
 			<InfoItem>
 				<IoLogoWhatsapp />
-				<InfoLink href={`https://wa.me/${whatsApp}`} target="_blank" rel="noopener noreferer">{whatsApp}</InfoLink>
+				<InfoLink href={`https://wa.me/${cleanPhoneNumber(whatsApp)}`} target="_blank" rel="noopener noreferer">{whatsApp}</InfoLink>
 			</InfoItem>
-			<InfoItem>
+			{phone && <InfoItem>
 				<HiPhone />
-				<InfoLink href={`tel:${phone}`}>{phone}</InfoLink>
-			</InfoItem>
+				<InfoLink href={`tel:${cleanPhoneNumber(phone)}`}>{phone}</InfoLink>
+			</InfoItem>}
 			<InfoItem>
 				<IoMdMail />
 				{email.map(emailAddress => <InfoLink key={emailAddress} href={`mailto:${emailAddress}`}>{emailAddress}</InfoLink>)}

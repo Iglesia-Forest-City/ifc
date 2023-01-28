@@ -1,4 +1,4 @@
-import { cleanVideoTitle, isExternalURL } from 'utils'
+import { cleanPhoneNumber, cleanVideoTitle, isExternalURL } from 'utils'
 
 describe('isExternalURL()', () => {
 	it('should detect external URLs', () => {
@@ -17,5 +17,13 @@ describe('cleanVideoTitle()', () => {
 		const cleanTitle = 'This is a title'
 		const title = `12/12/2012 ${cleanTitle}`
 		expect(cleanVideoTitle(title)).toBe(cleanTitle)
+	})
+})
+
+describe('cleanPhoneNumber()', () => {
+	it('should remove unwanted characters from the phone number', () => {
+		const phoneNumber = '+1 (234)-567-8910'
+		const cleanNumber = '+12345678910'
+		expect(cleanPhoneNumber(phoneNumber)).toBe(cleanNumber)
 	})
 })

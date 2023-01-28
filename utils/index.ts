@@ -15,9 +15,9 @@ const dateTimeFormatOptions: Intl.DateTimeFormatOptions = {
 	minute: '2-digit',
 }
 
-export const formatDate = (date: Date, locale: string = 'es') => date.toLocaleString(locale, dateFormatOptions)
+export const formatDate = (date: Date, locale = 'es') => date.toLocaleString(locale, dateFormatOptions)
 
-export const formatDateTime = (date: Date, locale: string = 'es') => date.toLocaleTimeString(locale, dateTimeFormatOptions)
+export const formatDateTime = (date: Date, locale = 'es') => date.toLocaleTimeString(locale, dateTimeFormatOptions)
 
 export const destructDateTime = (dateString: string) => {
 	const cleanDateString = dateString.replaceAll(/\.\s?|,/g, '')
@@ -28,4 +28,9 @@ export const destructDateTime = (dateString: string) => {
 		month,
 		time: `${time} ${timeSegment}`
 	}
+}
+
+export const cleanPhoneNumber = (phoneNumber: string) => {
+	const cleanPhoneNumber = phoneNumber.replaceAll(/\(|\)|\-|\s/g, '')
+	return cleanPhoneNumber
 }
