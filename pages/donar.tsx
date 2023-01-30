@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import type { GetStaticProps } from 'next'
-import { getCountry } from 'services'
+import { useDonationUrl } from 'hooks'
 
 export type DonateProps = {
 	donationsURL: string
@@ -8,17 +8,10 @@ export type DonateProps = {
 }
 
 const Donate = ({ donationsURL, donationsURLInternational }: DonateProps) => {
+	const donateURL = useDonationUrl(donationsURL, donationsURLInternational)
 	useEffect(() => {
-		const redirect = async () => {
-			const country = await getCountry()
-			let url = donationsURL
-			if (country !== 'US') {
-				url = donationsURLInternational
-			}
-			window.location.href = url
-		}
-		redirect()
-	}, [donationsURL, donationsURLInternational])
+		window.location.href = donateURL
+	}, [donateURL])
 	return null
 }
 
@@ -31,6 +24,11 @@ export const getStaticProps: GetStaticProps<DonateProps> = async () => ({
 			logoAltText: 'Forest City logo',
 			fixedHeader: true,
 			donationsURL: '/donar',
+		},
+		radio: {
+			logo: '/fcradio-logo.png',
+			logoAltText: 'Forest City Radio',
+			url: '/live-radio'
 		},
 		donationsURL: 'https://adventistgiving.org/#/org/ANTBEV/envelope/start',
 		donationsURLInternational: 'https://www.paypal.com/donate/?hosted_button_id=4SR42CJAZJLNN',

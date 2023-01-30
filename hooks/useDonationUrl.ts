@@ -1,4 +1,5 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react';
+import { useState, useEffect } from 'react'
 import { getCountry } from 'services'
 
 const adjustDonateURL = async (setURL: Dispatch<SetStateAction<string>>, url: string) => {

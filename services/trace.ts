@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const trace = axios.create({
-	baseURL: 'https://www.cloudflare.com/cdn-cgi/trace/',
+	baseURL: '/get-country',
 })
 
 const processData = (data: string) => {
