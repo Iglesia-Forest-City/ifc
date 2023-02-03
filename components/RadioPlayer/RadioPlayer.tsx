@@ -141,7 +141,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 				<ControlButton type="button" title="play" onClick={togglePlay} disabled={isLoading}>{isLoading ? <Spinner size={32} /> : togglePlayIcon}</ControlButton>
 				<ControlButton type="button" title="stop" onClick={stop} disabled={isLoading || !isLoaded}><CgPlayStopR /></ControlButton>
 				<ToggleVolButton type="button" title="volume" onClick={toggleVolume} disabled={isLoading || !isLoaded}>{toggleVolumeIcon}</ToggleVolButton>
-				<VolumeSlider title="volume" type="range" min={0} max={1} step={0.05} value={volume} onChange={onVolumeChange} disabled={isLoading || !isLoaded} />
+				<VolumeSlider title="volume" type="range" min={0} max={1} step={0.025} value={volume} onChange={onVolumeChange} disabled={isLoading || !isLoaded} />
 			</Controls>
 			<Metadata>
 				<Title>{title}</Title>

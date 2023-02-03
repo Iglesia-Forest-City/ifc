@@ -22,7 +22,7 @@ export const WrappedPlayer = styled(dynamicComponent('section', true))`
 
 		${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
 			grid-template-areas: 'logo controls metadata audience';
-			grid-template-columns: 1fr 2fr 8fr 1fr;
+			grid-template-columns: 1fr 2fr 8fr auto;
 		}
 	}
 `
