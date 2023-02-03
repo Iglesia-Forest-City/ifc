@@ -34,3 +34,23 @@ export const cleanPhoneNumber = (phoneNumber: string) => {
 	const cleanPhoneNumber = phoneNumber.replaceAll(/\(|\)|\-|\s/g, '')
 	return cleanPhoneNumber
 }
+
+export const getIpType = (ip: string) => {
+	const isIpv4 = ip.split('.').length === 4;
+  const isIpv6 = ip.split(':').length >= 2;
+  if (isIpv4) return 'IPv4';
+  if (isIpv6) return 'IPv6';
+  return 'unknown';
+}
+
+export const getIpFromHeader = (ipString: string) => {
+	const [ip] = ipString.replaceAll(/\s/g, '').split(',')
+	const type = getIpType(ip)
+	if (type === 'IPv4') {
+		const [ipv4] = ip.split(':')
+		return ipv4
+	} else if (type === 'IPv6') {
+		return ip.substring(0, ip.lastIndexOf(':'))
+	}
+	return ip
+}
