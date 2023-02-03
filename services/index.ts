@@ -1,4 +1,5 @@
-export { getCountry } from './trace'
+export { ip } from './ip'
+export type { IPResponse } from './ip.types';
 
 export { getCalendarEvents } from './microsoftGraph'
 
