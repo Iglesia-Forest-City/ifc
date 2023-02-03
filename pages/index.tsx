@@ -101,7 +101,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				video: '/opener.mp4',
 				poster: '/opener-poster.png',
 				title: 'Conoce a Jesús y vive.',
-				text: 'Dondequiera que te encuentres en la vida, queremos ser el lugar en el que puedas confiar para recibir inspiración, ánimo y apoyo. Nos reunimos cada sábado a las 10:30 am.',
+				text: 'Dondequiera que te encuentres en la vida, queremos ser el lugar en el que puedas confiar para recibir inspiración, ánimo y apoyo. Nos reunimos cada <strong>sábado</strong> a las <strong>9:30 am</strong> para el culto en inglés, a las <strong>10:30 am</strong> para la escuela sabática, y a las <strong>11:30 am</strong> para el culto en español.',
 				cta: {
 					text: 'Ver sermones',
 					href: '#sermones',

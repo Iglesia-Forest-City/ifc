@@ -23,7 +23,6 @@ export const getServerSideProps: GetServerSideProps<DonateProps> = async ({ req 
 	try {
 		const headerIp = Array.isArray(req.headers['x-forwarded-for']) ? req.headers['x-forwarded-for'][0] : req.headers['x-forwarded-for']
 		const clientIP = headerIp && getIpFromHeader(headerIp) || req.socket.remoteAddress;
-		console.log({ clientIP }, req.headers['x-forwarded-for'], req.socket.remoteAddress)
 		const { data } = await ip.get<IPResponse>(`${clientIP}/json/`)
 		donationsURL = data.country_code === 'US' ? donationsURL : donationsURLInternational
 	} catch (err) {

@@ -48,4 +48,8 @@ export const Text = styled.p`
 	line-height: 26px;
 	margin: 1.5em 0;
 	max-width: 390px;
+
+	b, strong {
+		font-weight: bold;
+	}
 `

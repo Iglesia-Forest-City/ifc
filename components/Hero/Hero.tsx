@@ -20,7 +20,7 @@ export const Hero = ({ className, title, text, poster, video, cta }: HeroProps) 
 		</Video>
 		<WrappedHero>
 			<Title>{title}</Title>
-			<Text>{text}</Text>
+			<Text dangerouslySetInnerHTML={{__html: text}} />
 			<Link href={cta.href}>{cta.text}</Link>
 		</WrappedHero>
 	</HeroSection>
