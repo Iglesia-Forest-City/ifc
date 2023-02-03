@@ -121,6 +121,7 @@ export const RadioLogo = styled.div`
 	aspect-ratio: 2.7888;
 	display: flex;
 	grid-area: logo;
+	mix-blend-mode: difference;
 	position: relative;
 	width: 100%;
 `
