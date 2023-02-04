@@ -997,10 +997,10 @@
     "@types/fined" "*"
     "@types/node" "*"
 
-"@types/node@*", "@types/node@18.11.18", "@types/node@>=10.0.0":
-  version "18.11.18"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
-  integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
+"@types/node@*", "@types/node@18.11.19", "@types/node@>=10.0.0":
+  version "18.11.19"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.19.tgz#35e26df9ec441ab99d73e99e9aca82935eea216d"
+  integrity sha512-YUgMWAQBWLObABqrvx8qKO1enAvBUdjZOAWQ5grBAkp5LQv45jBvYKZ3oFS9iKRCQyFjqw6iuEa1vmFqtxYLZw==
 
 "@types/prettier@^2.1.5":
   version "2.7.2"
@@ -5719,6 +5719,48 @@ tunnel-agent@^0.6.0:
   integrity sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==
   dependencies:
     safe-buffer "^5.0.1"
+
+turbo-darwin-64@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo-darwin-64/-/turbo-darwin-64-1.7.3.tgz#4bc9ea26bdb39fa7f1b4aa6eabd8b2de1c8224d3"
+  integrity sha512-7j9+j1CVztmdevnClT3rG/GRhULf3ukwmv+l48l8uwsXNI53zLso+UYMql6RsjZDbD6sESwh0CHeKNwGmOylFA==
+
+turbo-darwin-arm64@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo-darwin-arm64/-/turbo-darwin-arm64-1.7.3.tgz#29bbe372e2b4468dea40c864ec9ca1e92638f530"
+  integrity sha512-puS9+pqpiy4MrIvWRBTg3qfO2+JPXR7reQcXQ7qUreuyAJnSw9H9/TIHjeK6FFxUfQbmruylPtH6dNpfcML9CA==
+
+turbo-linux-64@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo-linux-64/-/turbo-linux-64-1.7.3.tgz#b4adc6d3846559abf1bdf67c7fad7fb4ef199df7"
+  integrity sha512-BnbpgcK8Wag6fhnff7tMaecswmFHN/T56VIDnjcwcJnK9H3jdwpjwZlmcDtkoslzjPj3VuqHyqLDMvSb3ejXSg==
+
+turbo-linux-arm64@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo-linux-arm64/-/turbo-linux-arm64-1.7.3.tgz#54f000fa52fd90440bb195e39ba0947505df93db"
+  integrity sha512-+epY+0dfjmAJNZHfj7rID2hENRaeM3D0Ijqkhh/M53o46fQMwPNqI5ff9erh+f9r8sWuTpVnRlZeu7TE1P/Okw==
+
+turbo-windows-64@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo-windows-64/-/turbo-windows-64-1.7.3.tgz#a07bb8117a5cb3af489579178bcdd72948a985eb"
+  integrity sha512-/2Z8WB4fASlq/diO6nhmHYuDCRPm3dkdUE6yhwQarXPOm936m4zj3xGQA2eSWMpvfst4xjVxxU7P7HOIOyWChA==
+
+turbo-windows-arm64@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo-windows-arm64/-/turbo-windows-arm64-1.7.3.tgz#73bb912f470c902d69bc7b295a82fced5620aaef"
+  integrity sha512-UD9Uhop42xj1l1ba5LRdwqRq1Of+RgqQuv+QMd1xOAZ2FXn/91uhkfLv+H4Pkiw7XdUohOxpj/FcOvjCiiUxGw==
+
+turbo@1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/turbo/-/turbo-1.7.3.tgz#60956d772a197091d101b77193850ec0dae8ddcd"
+  integrity sha512-mrqo72vPQO6ykmARThaNP/KXPDuBDSqDXfkUxD8hX1ET3YSFbOWJixlHU32tPtiFIhScIKbEGShEVWBrLeM0wg==
+  optionalDependencies:
+    turbo-darwin-64 "1.7.3"
+    turbo-darwin-arm64 "1.7.3"
+    turbo-linux-64 "1.7.3"
+    turbo-linux-arm64 "1.7.3"
+    turbo-windows-64 "1.7.3"
+    turbo-windows-arm64 "1.7.3"
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"

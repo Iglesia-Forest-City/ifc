@@ -9,11 +9,16 @@
   "workspaces": [
     "apps/*"
   ],
+	"nohoist": ["**/next", "**/next/**"],
   "devDependencies": {
-    "husky": "8.0.3"
+    "husky": "8.0.3",
+    "turbo": "1.7.3"
   },
   "scripts": {
     "prepare": "husky install",
+    "build": "turbo build",
+    "test": "turbo test",
+		"lint": "turbo lint",
     "web:dev": "yarn workspace @ifc/web dev",
     "web:build": "yarn workspace @ifc/web build",
     "web:start": "yarn workspace @ifc/web start",

@@ -12,18 +12,14 @@ const nextConfig = {
 		{
 			source: '/donacion',
 			destination: '/donar',
-			permanent: true
-		}
+			permanent: true,
+		},
 	],
 	rewrites: async () => [
 		{
 			source: '/live-radio',
 			destination: `${process.env.RADIO_SERVER}${process.env.RADIO_SERVER_NAME}`,
 		},
-		{
-			source: '/get-country',
-			destination: 'https://www.cloudflare.com/cdn-cgi/trace'
-		}
 	],
 	output: 'standalone',
 	productionBrowserSourceMaps: true,

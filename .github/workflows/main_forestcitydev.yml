@@ -16,7 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: Set up Node.js version ⚙️
         uses: actions/setup-node@v3
@@ -24,11 +27,11 @@ jobs:
           node-version: '18.x'
           cache: 'yarn'
 
-      - name: Install dependencies 📦 and test
-        run: |
-          yarn --frozen-lockfile
-          yarn web:build --if-present
-          yarn web:test --if-present
+      - name: Install dependencies 📦
+        run: yarn --frozen-lockfile
+
+      - name: Test and build
+        run: yarn build
 
       - name: Zip artifact for deployment
         run: |
