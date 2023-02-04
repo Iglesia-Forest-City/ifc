@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'apps/web/**'
   workflow_dispatch:
 
 jobs:
@@ -14,31 +16,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Set up Node.js version
-        uses: actions/setup-node@v1
+      - name: Set up Node.js version ⚙️
+        uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'yarn'
 
-      - name: node install, build, and test
+      - name: Install dependencies 📦 and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          yarn --frozen-lockfile
+          yarn web:build --if-present
+          yarn web:test --if-present
 
       - name: Zip artifact for deployment
         run: |
-          cp -r public .next/standalone
-          cp -r .next/static .next/standalone/.next
-          cd .next/standalone
+          cp -r apps/web/public apps/web/.next/standalone
+          cp -r apps/web/.next/static apps/web/.next/standalone/.next
+          cd apps/web/.next/standalone
           zip -r release.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .next/standalone/release.zip
+          path: apps/web/.next/standalone/release.zip
 
     env:
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
