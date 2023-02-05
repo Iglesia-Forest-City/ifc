@@ -6,19 +6,25 @@
   "author": "Carlos Sosa <cesosag@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
-	"nohoist": ["**/next", "**/next/**"],
+  "workspaces": {
+    "packages": [
+      "apps/*"
+    ],
+    "nohoist": [
+      "**/next",
+      "**/next/**"
+    ]
+  },
   "devDependencies": {
     "husky": "8.0.3",
+    "next": "13.1.6",
     "turbo": "1.7.3"
   },
   "scripts": {
     "prepare": "husky install",
     "build": "turbo build",
     "test": "turbo test",
-		"lint": "turbo lint",
+    "lint": "turbo lint",
     "web:dev": "yarn workspace @ifc/web dev",
     "web:build": "yarn workspace @ifc/web build",
     "web:start": "yarn workspace @ifc/web start",
