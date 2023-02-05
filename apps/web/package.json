@@ -1,7 +1,7 @@
 {
   "name": "@ifc/web",
   "description": "Forest City SDA church website",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "private": true,
   "scripts": {
     "dev": "next dev -p 4000",
@@ -60,7 +60,9 @@
 			"next",
 			"next/**",
 			"react",
-			"react/**"
+			"react/**",
+			"react-is",
+			"react-is/**"
 		]
 	}
 }
