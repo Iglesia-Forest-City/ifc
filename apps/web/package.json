@@ -1,7 +1,7 @@
 {
   "name": "@ifc/web",
   "description": "Forest City SDA church website",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "private": true,
   "scripts": {
     "dev": "next dev -p 4000",
@@ -54,5 +54,13 @@
   "volta": {
     "node": "18.12.1",
     "yarn": "1.17.3"
-  }
+  },
+	"workspaces": {
+		"nohoist": [
+			"next",
+			"next/**",
+			"react",
+			"react/**"
+		]
+	}
 }

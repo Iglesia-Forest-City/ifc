@@ -9,10 +9,6 @@
   "workspaces": {
     "packages": [
       "apps/*"
-    ],
-    "nohoist": [
-      "**/next",
-      "**/next/**"
     ]
   },
   "devDependencies": {
