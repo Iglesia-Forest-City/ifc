@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: dev.Dockerfile
+    ports:
+      - 4000:4000
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=dev
+      - PORT=4000
