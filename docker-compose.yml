@@ -10,7 +10,7 @@ services:
     container_name: ifc-proxy
     image: cesosag/ifc-proxy
     environment:
-      - DOMAIN=iglesiafc.com
+      - DOMAIN
       - WEB_SERVICE_NAME=web
       - WEB_SERVICE_PORT=3000
     volumes:
