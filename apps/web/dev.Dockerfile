@@ -2,6 +2,8 @@ FROM node:18.12.1-alpine
 LABEL maintainer="cesosag@gmail.com"
 RUN apk add --no-cache libc6-compat
 RUN apk update
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app
 COPY ./package.json ./package.json
 COPY ./yarn.lock ./yarn.lock

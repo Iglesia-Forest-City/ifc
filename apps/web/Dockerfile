@@ -2,6 +2,8 @@ FROM node:18.12.1-alpine AS builder
 LABEL maintainer="cesosag@gmail.com"
 RUN apk add --no-cache libc6-compat
 RUN apk update
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 WORKDIR /app
 COPY . .
 RUN yarn

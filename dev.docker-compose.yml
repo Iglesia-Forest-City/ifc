@@ -1,5 +1,6 @@
 services:
   web:
+    container_name: ifc-web-app-dev
     build:
       context: ./apps/web
       dockerfile: dev.Dockerfile
@@ -10,5 +11,27 @@ services:
       - /app/node_modules
       - /app/.next
     environment:
-      - NODE_ENV=dev
+      - NODE_ENV=development
       - PORT=4000
+  nginx:
+    container_name: ifc-proxy-dev
+    image: nginx:alpine-slim
+    environment:
+      - DOMAIN=forestcity.local
+      - WEB_SERVICE_NAME=web
+      - WEB_SERVICE_PORT=4000
+    volumes:
+      - ./proxy/templates/dev.conf.nginx:/etc/nginx/templates/default.conf.template
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+      - ./proxy/.logs:/var/log/nginx
+      - nginx_run:/var/run
+      - nginx_cache:/var/cache/nginx
+      - ./proxy/certs:/etc/certs
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - web
+volumes:
+  nginx_run:
+  nginx_cache:

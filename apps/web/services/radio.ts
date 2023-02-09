@@ -14,7 +14,7 @@ export const connectRadioSocket = async () => {
 	let socket: Socket<RadioSocketServerEvents>
 
 	try {
-		await fetch('/api/radioMetadata')
+		await fetch('/api/radio-metadata')
 	} finally {
 		socket = io({
 			secure: true,

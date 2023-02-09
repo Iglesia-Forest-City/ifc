@@ -52,7 +52,7 @@ const ioHandler = (req: NextApiRequest, res: SocketIONextApiResponse) => {
 
 	io.on('connection', (socket) => {
 		console.log('New client connection')
-		if (!pollInterval && io.engine.clientsCount === 1) {
+		if (!pollInterval && io.of('/').sockets.size === 1) {
 			console.log('Starting polling...')
 			pollInterval = setInterval(pollMetadata, 1000)
 			console.log('Polling started.')
@@ -60,7 +60,7 @@ const ioHandler = (req: NextApiRequest, res: SocketIONextApiResponse) => {
 
 		socket.on('disconnect', () => {
 			console.log('Disconnecting...')
-			if (io.engine.clientsCount <= 1) {
+			if (io.of('/').sockets.size < 1) {
 				console.log('Stopping polling...')
 				clearInterval(pollInterval)
 				console.log('Polling stopped.')

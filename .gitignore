@@ -26,3 +26,8 @@ node_modules/
 .DS_Store
 artifacts/
 out/
+*.pem
+
+# local env files
+.env*.local
+*.env
