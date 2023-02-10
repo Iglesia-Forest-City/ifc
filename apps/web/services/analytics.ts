@@ -10,7 +10,6 @@ const getMeasurementID = () => {
 }
 
 export const GA_MEASUREMENT_ID = getMeasurementID()
-console.info({ GA_MEASUREMENT_ID })
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageView = (url: string) => {
