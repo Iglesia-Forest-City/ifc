@@ -9,7 +9,7 @@
     "build:docker": "docker build --secret id=_env,src=.env -t cesosag/ifc-web .",
     "start": "node server.js",
     "lint": "next lint",
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "test:watch": "jest --watch",
     "generate": "generate"
   },
