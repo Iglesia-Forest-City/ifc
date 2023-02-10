@@ -1,10 +1,13 @@
 import { useEffect } from 'react'
 import type { AppProps as NextAppProps } from 'next/app'
+import { useRouter } from 'next/router'
+import Script from 'next/script'
 import { ThemeProvider } from 'styled-components'
 import { dynamicComponent, Header, Footer, RadioPlayer } from 'components'
 import type { FooterProps , RadioPlayerProps} from 'components'
 import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
+import { MEASUREMENT_ID, pageView } from 'services'
 
 type AppProps<P = unknown> = {
 	pageProps: P
@@ -33,11 +36,34 @@ const logAppVersion = () => console.log(
 )
 
 const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
+	const router = useRouter()
 	useEffect(() => {
 		logAppVersion()
 	}, [])
 
+	useEffect(() => {
+		pageView(window.location.pathname)
+		const handleRouteChange = (url: string) => {
+			pageView(url)
+		}
+		router.events.on('routeChangeComplete', handleRouteChange)
+
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange)
+		}
+	}, [router.events])
+
   return <>
+		<Script src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`} strategy="afterInteractive" />
+		<Script id="ga" strategy="afterInteractive">
+			{`
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){window.dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', '${MEASUREMENT_ID}');
+			`}
+		</Script>
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<Header
