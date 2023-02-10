@@ -19,7 +19,7 @@ export const Event = ({ name, date }: EventProps) => {
 			</DateInfo>
 			<EventInfo>
 				<Name>{name}</Name>
-				<Time dateTime={dateObject.toLocaleTimeString()}>{time}</Time>
+				<Time dateTime={time}>{time}</Time>
 			</EventInfo>
 		</EventWrapper>
 	)

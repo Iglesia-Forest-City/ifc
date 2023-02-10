@@ -1,7 +1,7 @@
 {
   "name": "@ifc/web",
   "description": "Forest City SDA church website",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "private": true,
   "scripts": {
     "dev": "next dev -p $PORT",

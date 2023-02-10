@@ -7,7 +7,7 @@ import { dynamicComponent, Header, Footer, RadioPlayer } from 'components'
 import type { FooterProps , RadioPlayerProps} from 'components'
 import { GlobalStyle, theme } from 'styles'
 import pkg from 'package.json'
-import { MEASUREMENT_ID, pageView } from 'services'
+import { GA_MEASUREMENT_ID, pageView } from 'services'
 
 type AppProps<P = unknown> = {
 	pageProps: P
@@ -54,14 +54,14 @@ const App = ({ Component, pageProps }: AppProps<CommonProps>) => {
 	}, [router.events])
 
   return <>
-		<Script src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`} strategy="afterInteractive" />
+		<Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
 		<Script id="ga" strategy="afterInteractive">
 			{`
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){window.dataLayer.push(arguments);}
 				gtag('js', new Date());
 
-				gtag('config', '${MEASUREMENT_ID}');
+				gtag('config', '${GA_MEASUREMENT_ID}');
 			`}
 		</Script>
 		<ThemeProvider theme={theme}>

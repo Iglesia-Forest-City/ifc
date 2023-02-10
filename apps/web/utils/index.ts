@@ -26,7 +26,7 @@ export const destructDateTime = (dateString: string) => {
 		weekday,
 		day,
 		month,
-		time: `${time} ${timeSegment}`
+		time: `${time} ${timeSegment ?? ''}`.replace(/\s+/g, ' ').trim()
 	}
 }
 

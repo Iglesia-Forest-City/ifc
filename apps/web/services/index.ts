@@ -12,4 +12,4 @@ export type { ContactFormRequest, ContactFormResponse } from './wix.types'
 export { connectRadioSocket, getRadioMetadata } from './radio'
 export type { RadioSocketServerEvents, SimplifiedMetadata } from './radio.types'
 
-export { MEASUREMENT_ID, pageView, event } from './analytics'
+export { GA_MEASUREMENT_ID, pageView, event } from './analytics'

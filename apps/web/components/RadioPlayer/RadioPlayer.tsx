@@ -43,7 +43,7 @@ export const RadioPlayer = ({ className, logo, logoAltText, url }: RadioPlayerPr
 		}
 
 		const { current } = audioPlayer
-		if(current) {
+		if (current) {
 			current.addEventListener('pause', setPause)
 			current.addEventListener('play', setPlay)
 			current.addEventListener('emptied', setStop)
