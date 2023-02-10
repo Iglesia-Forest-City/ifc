@@ -8,6 +8,12 @@
 		"test": {
 			"inputs": ["**/*.tsx", "/**/*.ts"]
 		},
-		"lint": {}
+		"lint": {},
+		"build:docker": {
+			"dependsOn": ["test"]
+		},
+		"push:docker": {
+			"dependsOn": ["build:docker"]
+		}
 	}
 }

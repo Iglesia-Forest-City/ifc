@@ -1,0 +1,12 @@
+{
+  "name": "@ifc/proxy",
+  "version": "1.0.0",
+  "author": "cesosag",
+  "license": "MIT",
+  "private": true,
+	"scripts": {
+		"build:docker": "docker build -t cesosag/ifc-proxy .",
+		"push:docker": "docker push cesosag/ifc-web",
+		"generate-certificate": "minica --domains 'forestcity.local'"
+	}
+}

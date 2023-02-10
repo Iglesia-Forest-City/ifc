@@ -8,7 +8,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "apps/*"
+      "apps/*",
+			"proxy"
     ]
   },
   "devDependencies": {
@@ -23,14 +24,18 @@
     "build": "turbo build",
     "test": "turbo test",
     "lint": "turbo lint",
+		"build:docker": "turbo build:docker",
+		"push:docker": "turbo push:docker",
     "web:dev": "yarn workspace @ifc/web dev",
     "web:build": "yarn workspace @ifc/web build",
+		"web:build:docker": "yarn workspace @ifc/web build:docker",
     "web:start": "yarn workspace @ifc/web start",
     "web:lint": "yarn workspace @ifc/web lint",
     "web:test": "yarn workspace @ifc/web test",
     "web:test:watch": "yarn workspace @ifc/web test:watch",
     "web:generate": "yarn workspace @ifc/web generate",
-		"generate-certificate": "(cd proxy/certs && minica --domains 'forestcity.local')",
+		"proxy:generate-certificate": "yarn workspace @ifc/proxy generate-certificate",
+		"proxy:build:docker": "yarn workspace @ifc/proxy build:docker",
 		"dev:start": "docker-compose -f dev.docker-compose.yml up",
 		"dev:restart": "docker-compose -f dev.docker-compose.yml restart",
 		"start": "docker-compose up",
