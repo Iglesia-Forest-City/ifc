@@ -1,9 +1,16 @@
 import type { GAEventType } from './analytics.types';
-export const GA_MEASUREMENT_ID: string = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? 'no-id-provided'
 
-if (GA_MEASUREMENT_ID === 'no-id-provided') {
-	console.warn('Please provide GA_MEASUREMENT_ID different than:', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+const getMeasurementID = () => {
+	const gaFromEnv = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+	if (gaFromEnv === undefined || gaFromEnv === '') {
+		console.warn('Please provide GA_MEASUREMENT_ID different than:', gaFromEnv);
+		return 'no-id-provided'
+	}
+	return gaFromEnv
 }
+
+export const GA_MEASUREMENT_ID = getMeasurementID()
+console.info({ GA_MEASUREMENT_ID })
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageView = (url: string) => {
