@@ -56,7 +56,6 @@ jobs:
       RADIO_SERVER: ${{ secrets.RADIO_SERVER }}
       RADIO_SERVER_NAME: ${{ secrets.RADIO_SERVER_NAME }}
       NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
-      NODE_ENV: production
 
   deploy:
     runs-on: ubuntu-latest
