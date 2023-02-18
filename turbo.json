@@ -6,7 +6,7 @@
 			"outputs": [".next/**"]
 		},
 		"test": {
-			"inputs": ["**/*.tsx", "/**/*.ts"]
+			"inputs": ["**/*.tsx", "**/*.ts"]
 		},
 		"lint": {},
 		"build:docker": {

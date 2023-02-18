@@ -5,7 +5,20 @@ services:
     # ports:
     #   - 3000:3000
     environment:
+      - YOUTUBE_API_KEY
+      - MICROSOFT_GRAPH_TENANT
+      - MICROSOFT_GRAPH_CLIENT_ID
+      - MICROSOFT_GRAPH_CLIENT_SECRET
+      - WIX_ENDPOINT
+      - WIX_CONTACT_FORM_PATH
+      - RADIO_SERVER
+      - RADIO_SERVER_NAME
+      - NEXT_PUBLIC_GA_MEASUREMENT_ID
       - NODE_ENV=production
+    depends_on:
+      - strapi
+    networks:
+      - datanet
   nginx:
     container_name: ifc-proxy
     image: cesosag/ifc-proxy
@@ -13,6 +26,8 @@ services:
       - DOMAIN
       - WEB_SERVICE_NAME=web
       - WEB_SERVICE_PORT=3000
+      - CMS_HOST=strapi
+      - CMS_HOST_PORT=1337
     volumes:
       - nginx_logs:/var/log/nginx
       - nginx_run:/var/run
@@ -22,6 +37,50 @@ services:
     ports:
       - 80:80
       - 443:443
+    depends_on:
+      - web
+    networks:
+      - proxynet
+      - datanet
+  strapi:
+    container_name: ifc-cms
+    image: cesosag/ifc-cms
+    restart: unless-stopped
+    environment:
+      - DOMAIN
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME
+      - DATABASE_USERNAME
+      - DATABASE_PASSWORD
+      - JWT_SECRET
+      - ADMIN_JWT_SECRET
+      - APP_KEYS
+      - API_TOKEN_SALT
+      - NODE_ENV=production
+    ports:
+      - 1337:1337
+    networks:
+      - datanet
+    depends_on:
+      - db
+  db:
+    container_name: ifc-db
+    platform: linux/amd64
+    restart: unless-stopped
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+    volumes:
+      # - strapi-data:/var/lib/postgresql/data/ #using a volume
+      - database:/var/lib/postgresql/data/ # if you want to use a bind folder
+    ports:
+      - 5432:5432
+    networks:
+      - datanet
+
   # certbot:
   #   container_name: ifc-certbot
   #   image: certbot/certbot
@@ -33,5 +92,11 @@ volumes:
   nginx_logs:
   nginx_run:
   nginx_cache:
+  database:
   # letsencrypt:
   # certbot_:
+networks:
+  proxynet:
+    driver: bridge
+  datanet:
+    driver: bridge

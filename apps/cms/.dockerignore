@@ -1,0 +1,15 @@
+Dockerfile
+.dockerignore
+**/*.DS_Store
+.tmp/
+.cache/
+.git/
+build/
+node_modules/
+.env
+data/
+npm-debug.log
+README.md
+.next
+.git
+**/*.env

@@ -4,22 +4,38 @@ services:
     build:
       context: ./apps/web
       dockerfile: dev.Dockerfile
+    image: cesosag/ifc-web-dev
     ports:
       - 4000:4000
     volumes:
       - ./apps/web:/app
-      - /app/node_modules
+      - web_modules:/app/node_modules
       - /app/.next
     environment:
+      - YOUTUBE_API_KEY
+      - MICROSOFT_GRAPH_TENANT
+      - MICROSOFT_GRAPH_CLIENT_ID
+      - MICROSOFT_GRAPH_CLIENT_SECRET
+      - WIX_ENDPOINT
+      - WIX_CONTACT_FORM_PATH
+      - RADIO_SERVER
+      - RADIO_SERVER_NAME
+      - NEXT_PUBLIC_GA_MEASUREMENT_ID
       - NODE_ENV=development
       - PORT=4000
+    depends_on:
+      - strapi
+    networks:
+      - datanet
   nginx:
     container_name: ifc-proxy-dev
     image: nginx:alpine-slim
     environment:
       - DOMAIN=forestcity.local
-      - WEB_SERVICE_NAME=web
-      - WEB_SERVICE_PORT=4000
+      - WEB_HOST=web
+      - WEB_HOST_PORT=4000
+      - CMS_HOST=strapi
+      - CMS_HOST_PORT=1337
     volumes:
       - ./proxy/templates/dev.conf.nginx:/etc/nginx/templates/default.conf.template
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
@@ -32,6 +48,61 @@ services:
       - 443:443
     depends_on:
       - web
+    networks:
+      - proxynet
+      - datanet
+  strapi:
+    container_name: ifc-strapi-dev
+    build:
+      context: ./apps/cms
+      dockerfile: dev.Dockerfile
+    image: cesosag/ifc-strapi-dev
+    restart: unless-stopped
+    environment:
+      - DOMAIN
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME
+      - DATABASE_USERNAME
+      - DATABASE_PASSWORD
+      - JWT_SECRET
+      - ADMIN_JWT_SECRET
+      - APP_KEYS
+      - NODE_ENV=development
+    volumes:
+      - ./apps/cms:/app
+      - cms_modules:/app/node_modules
+    ports:
+      - 1337:1337
+    networks:
+      - datanet
+    depends_on:
+      - db
+  db:
+    container_name: ifc-db-dev
+    platform: linux/amd64
+    restart: unless-stopped
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+    volumes:
+      # - strapi-data:/var/lib/postgresql/data/ #using a volume
+      - ./.db:/var/lib/postgresql/data/ # if you want to use a bind folder
+    ports:
+      - 5432:5432
+    networks:
+      - datanet
 volumes:
   nginx_run:
   nginx_cache:
+  strapi-data:
+  web_modules:
+  cms_modules:
+
+networks:
+  proxynet:
+    driver: bridge
+  datanet:
+    driver: bridge

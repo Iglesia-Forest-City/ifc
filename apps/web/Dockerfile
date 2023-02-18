@@ -1,4 +1,4 @@
-FROM node:18.12.1-alpine AS builder
+FROM node:18.14.0-alpine AS builder
 LABEL maintainer="cesosag@gmail.com"
 RUN apk add --no-cache libc6-compat
 RUN apk update
@@ -9,7 +9,7 @@ RUN yarn
 RUN --mount=type=secret,id=_env,target=/app/.env yarn build
 RUN rm -rf .next/standalone/.env
 
-FROM node:18.12.1-alpine AS runner
+FROM node:18.14.0-alpine AS runner
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

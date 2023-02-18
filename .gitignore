@@ -31,3 +31,6 @@ out/
 # local env files
 .env*.local
 *.env
+
+# Database
+.db
