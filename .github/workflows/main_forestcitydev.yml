@@ -34,8 +34,7 @@ jobs:
         run: |
           cp -r apps/web/public apps/web/.next/standalone
           cp -r apps/web/.next/static apps/web/.next/standalone/.next
-          cd apps/web/.next/standalone
-          zip -r release.zip .
+          (cd apps/web/.next/standalone && zip -r release.zip .)
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
