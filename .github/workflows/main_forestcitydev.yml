@@ -30,11 +30,6 @@ jobs:
         run: yarn workspace @ifc/web install
       - name: Test and build
         run: yarn web:build
-      - name: Zip artifact for deployment
-        run: |
-          cp -r apps/web/public apps/web/.next/standalone
-          cp -r apps/web/.next/static apps/web/.next/standalone/.next
-          (cd apps/web/.next/standalone && zip -r release.zip .)
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
