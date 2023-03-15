@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 		events = []
 	}
 	return {
-		revalidate: 86400,
+		revalidate: 3600,
 		props: {
 			header: {
 				logo: '/fc-logo.svg',
@@ -159,7 +159,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				events
 			},
 			belong: {
-				title: 'Haz parte de Forest City',
+				title: 'Se parte de Forest City',
 				support: {
 					title: 'Apoya con tu tiempo y talento',
 					text: `
