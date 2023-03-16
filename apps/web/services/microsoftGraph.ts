@@ -38,7 +38,12 @@ const fetchCalendarEvents = async () => {
 	const end = new Date()
 	end.setDate(end.getDate() + 7)
 	console.log('Fetching events from calendar...')
-	const { data } = await microsoftGraph.get<CalendarResponse>(`users/calendario@iglesiafc.com/calendarview?startdatetime=${start.toISOString()}&enddatetime=${end.toISOString()}&$select=subject,body,bodyPreview,organizer,start,end,location`)
+	const { data } = await microsoftGraph.get<CalendarResponse>(`users/calendario@iglesiafc.com/calendarview?startdatetime=${start.toISOString()}&enddatetime=${end.toISOString()}&$select=subject,body,bodyPreview,organizer,start,end,location`, {
+		headers: { 
+			'Content-Type': 'application/x-www-form-urlencoded',
+			'Prefer': 'outlook.timezone="Eastern Standard Time"'
+		}	
+	})
 	return data
 }
 export const getCalendarEvents = async () => {
