@@ -1,6 +1,9 @@
 services:
   web:
     container_name: ifc-web-app
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
     image: cesosag/ifc-web
     # ports:
     #   - 3000:3000
@@ -21,6 +24,9 @@ services:
       - datanet
   nginx:
     container_name: ifc-proxy
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
     image: cesosag/ifc-proxy
     environment:
       - DOMAIN
@@ -44,6 +50,9 @@ services:
       - datanet
   strapi:
     container_name: ifc-cms
+    build:
+      context: ./apps/cms
+      dockerfile: Dockerfile
     image: cesosag/ifc-cms
     restart: unless-stopped
     environment:
