@@ -7,6 +7,6 @@
 	"scripts": {
 		"build:docker": "docker build -t cesosag/ifc-proxy .",
 		"push:docker": "docker push cesosag/ifc-web",
-		"generate-certificate": "minica --domains 'forestcity.local'"
+		"generate-certificate": "(cd certs && minica --domains '*.forestcity.local')"
 	}
 }
