@@ -1,10 +1,12 @@
 services:
   web:
     container_name: ifc-web-app
+    image: ifcweb.azurecr.io/ifc-web
     build:
       context: ./apps/web
       dockerfile: Dockerfile
-    image: cesosag/ifc-web
+      secrets:
+        - _env
     # ports:
     #   - 3000:3000
     environment:
@@ -27,7 +29,7 @@ services:
     build:
       context: ./proxy
       dockerfile: Dockerfile
-    image: cesosag/ifc-proxy
+    image: ifcweb.azurecr.io/ifc-proxy
     environment:
       - DOMAIN
       - WEB_SERVICE_NAME=web
@@ -50,10 +52,10 @@ services:
       - datanet
   strapi:
     container_name: ifc-cms
+    image: ifcweb.azurecr.io/ifc-cms
     build:
       context: ./apps/cms
       dockerfile: Dockerfile
-    image: cesosag/ifc-cms
     restart: unless-stopped
     environment:
       - DOMAIN
@@ -109,3 +111,6 @@ networks:
     driver: bridge
   datanet:
     driver: bridge
+secrets:
+  _env:
+    file: ./.env
