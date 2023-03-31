@@ -1,8 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import type { AxiosError } from 'axios'
-import { Belong, Events, Hero, Leadership, SocialNetworks, Values, Videos, Welcome } from 'components'
-import type { EventsProps, HeroProps, LeadershipProps, ValuesProps, VideosProps, WelcomeProps, BelongProps, SocialNetworksProps, EventProps} from 'components'
+import { Belong, Events, Hero, Leadership, Podcast, SocialNetworks, Values, Videos, Welcome } from 'components'
+import type { EventsProps, HeroProps, LeadershipProps, PodcastProps, ValuesProps, VideosProps, WelcomeProps, BelongProps, SocialNetworksProps, EventProps} from 'components'
 import { getCalendarEvents, youtube } from 'services'
 import type { YouTubeDataResponse, YouTubeVideoSnippet } from 'services'
 
@@ -11,13 +11,14 @@ type HomeProps = {
 	welcome: Omit<WelcomeProps, 'className'>
 	values: Omit<ValuesProps, 'className'>
 	videos: Omit<VideosProps, 'className'>
+	podcasts: Omit<PodcastProps, 'className'>
 	leadership: Omit<LeadershipProps, 'className'>
 	events: Omit<EventsProps, 'className'>
 	belong: Omit<BelongProps, 'className'>
 	socialNetworks: Omit<SocialNetworksProps, 'className'>
 }
 
-const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, events, belong, socialNetworks }) => {
+const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, podcasts, leadership, events, belong, socialNetworks }) => {
   return (
 		<>
       <Head>
@@ -26,6 +27,7 @@ const Home: NextPage<HomeProps> = ({ hero, welcome, values, videos, leadership, 
       </Head>
 			<Hero {...hero} />
 			{videos.videos.length > 0 && <Videos {...videos} />}
+			<Podcast {...podcasts } />
 			<Welcome {...welcome}/>
 			<Values {...values} />
 			<Leadership {...leadership} />
@@ -112,6 +114,13 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				title: 'Más temas',
 				videos,
 				channelURL: 'https://www.youtube.com/c/VideosForestCity',
+			},
+			podcasts: {
+				title: 'Escucha nuestro podcast',
+				spotifyURL: 'https://open.spotify.com/show/3BQmoqVfbP3PzhQVSmkCBV?si=1a82e165ac604aea',
+				applePodcastsURL: 'https://podcasts.apple.com/podcast/id1669415564?app=podcast&at=1000lHKX',
+				googlePodcastsURL: 'https://podcasts.google.com/?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy9kYTM0ZDQ0NC9wb2RjYXN0L3Jzcw',
+				castboxURL: 'https://castbox.fm/vic/1669415564'
 			},
 			welcome: {
 				id: 'acerca-de-nosotros',
