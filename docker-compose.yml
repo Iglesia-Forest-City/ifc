@@ -62,6 +62,7 @@ services:
     restart: unless-stopped
     environment:
       - DOMAIN
+      - HOST
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_NAME
@@ -80,11 +81,11 @@ services:
       - db
   db:
     platform: linux/amd64
-    container_name: ifc-db
-    # platform: linux/amd64
+    container_name: ifc-cms-db
     restart: unless-stopped
-    image: postgres:14-alpine
+    image: postgres:14-alpine 
     environment:
+      # - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_USER=${DATABASE_USERNAME}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}
