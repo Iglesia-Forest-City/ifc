@@ -1,9 +1,15 @@
 services:
   web:
+    platform: linux/amd64
     container_name: ifc-web-app
-    image: cesosag/ifc-web
-    # ports:
-    #   - 3000:3000
+    image: ifcweb.azurecr.io/ifc-web
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      secrets:
+        - _env
+    ports:
+      - 3000:3000
     environment:
       - YOUTUBE_API_KEY
       - MICROSOFT_GRAPH_TENANT
@@ -20,8 +26,12 @@ services:
     networks:
       - datanet
   nginx:
+    platform: linux/amd64
     container_name: ifc-proxy
-    image: cesosag/ifc-proxy
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: ifcweb.azurecr.io/ifc-proxy
     environment:
       - DOMAIN
       - WEB_SERVICE_NAME=web
@@ -43,11 +53,16 @@ services:
       - proxynet
       - datanet
   strapi:
+    platform: linux/amd64
     container_name: ifc-cms
-    image: cesosag/ifc-cms
+    image: ifcweb.azurecr.io/ifc-cms
+    build:
+      context: ./apps/cms
+      dockerfile: Dockerfile
     restart: unless-stopped
     environment:
       - DOMAIN
+      - HOST
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_NAME
@@ -65,11 +80,12 @@ services:
     depends_on:
       - db
   db:
-    container_name: ifc-db
     platform: linux/amd64
+    container_name: ifc-cms-db
     restart: unless-stopped
-    image: postgres:14-alpine
+    image: postgres:14-alpine 
     environment:
+      # - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_USER=${DATABASE_USERNAME}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DATABASE_NAME}
@@ -100,3 +116,6 @@ networks:
     driver: bridge
   datanet:
     driver: bridge
+secrets:
+  _env:
+    file: ./.env

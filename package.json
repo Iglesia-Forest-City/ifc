@@ -2,7 +2,7 @@
   "name": "ifc",
   "version": "1.0.0",
   "description": "IFC monorepo",
-  "repository": "git@github.com:cesosag/ifc.git",
+  "repository": "git@github.com:iglesia-forest-city/ifc.git",
   "author": "Carlos Sosa <cesosag@gmail.com>",
   "license": "MIT",
   "private": true,

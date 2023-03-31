@@ -29,6 +29,9 @@ services:
       - datanet
   nginx:
     container_name: ifc-proxy-dev
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
     image: nginx:alpine-slim
     environment:
       - DOMAIN=forestcity.local
@@ -67,6 +70,7 @@ services:
       - DATABASE_PASSWORD
       - JWT_SECRET
       - ADMIN_JWT_SECRET
+      - API_TOKEN_SALT
       - APP_KEYS
       - NODE_ENV=development
     volumes:
