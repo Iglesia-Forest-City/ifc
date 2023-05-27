@@ -5,8 +5,8 @@
   "license": "MIT",
   "private": true,
 	"scripts": {
-		"build:docker": "docker build -t cesosag/ifc-proxy .",
-		"push:docker": "docker push cesosag/ifc-web",
+		"build:docker": "docker build -t ifcweb.azurecr.io/ifc-proxy .",
+		"push:docker": "docker push ifcweb.azurecr.io/ifc-web",
 		"generate-certificate": "(cd certs && minica --domains '*.forestcity.local')"
 	}
 }

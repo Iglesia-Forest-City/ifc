@@ -9,7 +9,7 @@ services:
       - 4000:4000
     volumes:
       - ./apps/web:/app
-      - web_modules:/app/node_modules
+      - /app/node_modules
       - /app/.next
     environment:
       - YOUTUBE_API_KEY
@@ -71,7 +71,7 @@ services:
       - NODE_ENV=development
     volumes:
       - ./apps/cms:/app
-      - cms_modules:/app/node_modules
+      - /app/node_modules
     ports:
       - 1337:1337
     networks:
@@ -98,11 +98,7 @@ volumes:
   nginx_run:
   nginx_cache:
   strapi-data:
-  web_modules:
-  cms_modules:
 
 networks:
   proxynet:
-    driver: bridge
   datanet:
-    driver: bridge

@@ -1,7 +1,6 @@
 FROM node:18.14.0-alpine AS builder
 LABEL maintainer="cesosag@gmail.com"
-RUN apk add --no-cache libc6-compat
-RUN apk update
+RUN apk add --no-cache libc6-compat zip && apk update
 ENV NODE_ENV=production
 WORKDIR /app
 COPY . .
@@ -16,6 +15,6 @@ RUN adduser --system --uid 1001 nextjs
 USER nextjs
 WORKDIR /app
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone .
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 CMD yarn start

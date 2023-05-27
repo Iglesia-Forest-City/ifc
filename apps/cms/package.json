@@ -8,18 +8,18 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "build:docker": "docker build -t cesosag/ifc-cms .",
-    "push:docker": "docker push cesosag/ifc-cms"
+    "build:docker": "docker build -t ifcweb.azurecr.io/ifc-cms .",
+    "push:docker": "docker push ifcweb.azurecr.io/ifc-cms"
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-graphql": "4.9.0",
-    "@strapi/plugin-i18n": "4.9.0",
-    "@strapi/plugin-seo": "1.8.0",
-    "@strapi/plugin-users-permissions": "4.9.0",
-    "@strapi/strapi": "4.9.0",
-    "pg": "8.10.0",
-    "sharp": "0.32.0"
+    "@strapi/plugin-graphql": "4.10.6",
+    "@strapi/plugin-i18n": "4.10.6",
+    "@strapi/plugin-seo": "1.9.0",
+    "@strapi/plugin-users-permissions": "4.10.6",
+    "@strapi/strapi": "4.10.6",
+    "pg": "8.11.0",
+    "sharp": "0.32.1"
   },
   "author": {
     "name": "Carlos Sosa"

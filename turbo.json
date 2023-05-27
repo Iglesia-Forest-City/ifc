@@ -9,6 +9,7 @@
 			"inputs": ["**/*.tsx", "**/*.ts"]
 		},
 		"lint": {},
+		"lint-staged": {},
 		"build:docker": {
 			"dependsOn": ["test"]
 		},
