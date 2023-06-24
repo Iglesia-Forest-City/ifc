@@ -1,4 +1,5 @@
-// import type { Strapi } from '@strapi/strapi';
+import type { Strapi } from '@strapi/strapi'
+import graphQL from './extensions/graphQL'
 
 export default {
 	/**
@@ -7,7 +8,9 @@ export default {
 	 *
 	 * This gives you an opportunity to extend code.
 	 */
-	register(/*{ strapi }: { strapi: Strapi }*/) {},
+	register({ strapi }: { strapi: Strapi }) {
+		graphQL(strapi)
+	},
 
 	/**
 	 * An asynchronous bootstrap function that runs before
