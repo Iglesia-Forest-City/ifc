@@ -1,7 +1,7 @@
 {
   "name": "@ifc/cms",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Headless CMS for ifc project",
   "scripts": {
     "develop": "strapi develop",
@@ -13,13 +13,16 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-graphql": "4.10.6",
-    "@strapi/plugin-i18n": "4.10.6",
-    "@strapi/plugin-seo": "1.9.0",
-    "@strapi/plugin-users-permissions": "4.10.6",
-    "@strapi/strapi": "4.10.6",
+    "@palmabit/strapi-app-version": "1.1.0",
+    "@strapi/plugin-graphql": "4.11.2",
+    "@strapi/plugin-i18n": "4.11.2",
+    "@strapi/plugin-seo": "1.9.2",
+    "@strapi/plugin-users-permissions": "4.11.2",
+    "@strapi/strapi": "4.11.2",
     "pg": "8.11.0",
-    "sharp": "0.32.1"
+    "sharp": "0.32.1",
+    "strapi-plugin-menus": "1.4.3",
+    "strapi-plugin-navigation": "2.2.11"
   },
   "author": {
     "name": "Carlos Sosa"

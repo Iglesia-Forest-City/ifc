@@ -4,7 +4,6 @@ services:
     build:
       context: ./apps/web
       dockerfile: dev.Dockerfile
-    image: cesosag/ifc-web-dev
     ports:
       - 4000:4000
     volumes:
@@ -56,7 +55,6 @@ services:
     build:
       context: ./apps/cms
       dockerfile: dev.Dockerfile
-    image: cesosag/ifc-strapi-dev
     restart: unless-stopped
     environment:
       - DOMAIN
@@ -68,6 +66,8 @@ services:
       - JWT_SECRET
       - ADMIN_JWT_SECRET
       - APP_KEYS
+      - API_TOKEN_SALT
+      - TRANSFER_TOKEN_SALT
       - NODE_ENV=development
     volumes:
       - ./apps/cms:/app

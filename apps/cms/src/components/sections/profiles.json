@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_profiles_gallery",
+  "info": {
+    "displayName": "Profiles gallery",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sectionID": {
+      "type": "string"
+    },
+    "profiles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.profile"
+    }
+  }
+}

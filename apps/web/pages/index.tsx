@@ -144,13 +144,13 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 					},
 					{
 						picture: '/denar-almonte.png',
-						name: 'Denar Almonte',
+						name: 'Dénar Almonte',
 						role: 'Ministro de alabanza y adoración',
 						bio: 'Nacido en Chile, actualmente se desempeña como Ministro de alabanza de la Iglesia Adventista de Forest City. Es productor musical en su estudio de grabación junto a su esposa Izzie a quien conoció mientras integraba el grupo Heritage Singers en Español, del cual fue director por 12 años.',
 					},
 					{
 						picture: '/angelo-acevedo.png',
-						name: 'Angelo Acevedo',
+						name: 'Ángelo Acevedo',
 						role: 'Pastor asociado de jóvenes',
 						bio: 'Nació en la isla del encanto: Puerto Rico. Anteriormente sirvió como pastor en la conferencia de Idaho y como capellán en un centro para jóvenes en riesgo llamado Project Patch. Actualmente termina su maestría en Ministerio Pastoral en la Universidad de Andrews.',
 					},
@@ -172,7 +172,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 				support: {
 					title: 'Apoya con tu tiempo y talento',
 					text: `
-						<p>Participa en alguna de las diversas oportunidades de servicio que Forestcity ofrece a través del Ministerio de Servicios Comunitarios. Promovemos el voluntariado por medio de actos concretos de amor y servicio, superando el egoísmo y la indiferencia hacia las necesidades humanas.</p>
+						<p>Participa en alguna de las diversas oportunidades de servicio que Forest City ofrece a través del Ministerio de Servicios Comunitarios. Promovemos el voluntariado por medio de actos concretos de amor y servicio, superando el egoísmo y la indiferencia hacia las necesidades humanas.</p>
 						<p>Algunas de las actividades que realizamos son:
 							<ul>
 								<li>Banco de alimentos con distribuciones semanales</li>
@@ -191,7 +191,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 					title: 'Tu ofrenda hace la diferencia',
 					text: `
 						<h3>¿Qué sucede con el dinero que donas?</h3>
-						<p>¡Se cambian vidas! Dios provee para Forestcity a través de los diezmos y ofrendas. Honramos tus donaciones con una mayordomía fiel, prácticas comerciales éticas y plena responsabilidad para que la integridad financiera de la iglesia permanezca irreprochable. Si tienes alguna pregunta sobre cómo donar o sobre nuestras políticas financieras, envía un correo electrónico a <a href="mailto:tesorero@iglesiafc.com">tesorero@iglesiafc.com</a>.</p>
+						<p>¡Se cambian vidas! Dios provee para Forest City a través de los diezmos y ofrendas. Honramos tus donaciones con una mayordomía fiel, prácticas comerciales éticas y plena responsabilidad para que la integridad financiera de la iglesia permanezca irreprochable. Si tienes alguna pregunta sobre cómo donar o sobre nuestras políticas financieras, envía un correo electrónico a <a href="mailto:tesorero@iglesiafc.com">tesorero@iglesiafc.com</a>.</p>
 					`,
 					picture: '/give-thanks.jpg',
 					ctaLabel: 'Donar ahora',

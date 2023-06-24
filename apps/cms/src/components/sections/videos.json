@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_videos",
+  "info": {
+    "displayName": "Videos",
+    "icon": "slideshow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sectionID": {
+      "type": "string",
+      "required": false
+    },
+    "playlistID": {
+      "type": "text",
+      "required": true
+    },
+    "channel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta",
+      "required": true
+    }
+  }
+}

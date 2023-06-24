@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_content_and_image_sections",
+  "info": {
+    "displayName": "Content and image section",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.content-and-image",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_events",
+  "info": {
+    "displayName": "Events",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sectionID": {
+      "type": "string",
+      "required": false
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    }
+  }
+}

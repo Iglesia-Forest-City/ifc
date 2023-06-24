@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_profiles",
+  "info": {
+    "displayName": "Profile",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "picture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

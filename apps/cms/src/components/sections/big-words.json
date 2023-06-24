@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_big_words",
+  "info": {
+    "displayName": "Big words",
+    "icon": "bold",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "words": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.word",
+      "required": true,
+      "max": 6
+    }
+  }
+}

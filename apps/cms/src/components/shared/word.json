@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_words",
+  "info": {
+    "displayName": "Word",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "word": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

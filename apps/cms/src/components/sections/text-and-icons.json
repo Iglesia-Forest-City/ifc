@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_text_and_icons",
+  "info": {
+    "displayName": "Text and icons",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    },
+		"hasBackground": {
+			"type": "boolean",
+			"default": false
+		},
+    "icon": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.icon"
+    }
+  }
+}
