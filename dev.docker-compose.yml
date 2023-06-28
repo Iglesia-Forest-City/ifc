@@ -69,6 +69,7 @@ services:
       - API_TOKEN_SALT
       - TRANSFER_TOKEN_SALT
       - NODE_ENV=development
+      - YOUTUBE_API_KEY
     volumes:
       - ./apps/cms:/app
       - /app/node_modules

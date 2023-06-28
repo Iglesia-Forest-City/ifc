@@ -10,14 +10,17 @@
       "type": "text",
       "required": true
     },
-		"hasBackground": {
-			"type": "boolean",
-			"default": false
-		},
-    "icon": {
+    "hasBackground": {
+      "type": "boolean",
+      "default": false
+    },
+    "icons": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.icon"
+      "component": "shared.icon",
+      "required": true,
+      "max": 4,
+      "min": 1
     }
   }
 }

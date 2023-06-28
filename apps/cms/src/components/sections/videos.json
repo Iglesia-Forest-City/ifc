@@ -16,9 +16,14 @@
       "required": false
     },
     "playlistID": {
-      "type": "text",
-      "required": true
+      "type": "string",
+      "required": true,
+      "private": true
     },
+		"videos": {
+			"type": "json",
+			"configurable": false
+		},
     "channel": {
       "type": "component",
       "repeatable": false,
