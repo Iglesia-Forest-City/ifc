@@ -49,7 +49,7 @@ export const VideoGallery = styled.div`
 `
 
 interface GalleryWrapperProps {
-	itemsCount: number
+	$itemsCount: number
 }
 
 export const GalleryWrapper = styled.div<GalleryWrapperProps>`
@@ -57,14 +57,14 @@ export const GalleryWrapper = styled.div<GalleryWrapperProps>`
 	grid-gap: 1em;
 	grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
 	padding: 0 2rem;
-	width: calc(${({ itemsCount }) => itemsCount} * 100% - 16rem);
+	width: calc(${({ $itemsCount }) => $itemsCount} * 100% - 16rem);
 
 	${({ theme }) => theme.mediaQueries.tabletPortraitUp} {
-		max-width: calc(${({ itemsCount }) => itemsCount} * 50% - 16rem);
+		max-width: calc(${({ $itemsCount }) => $itemsCount} * 50% - 16rem);
 	}
 
 	${({ theme }) => theme.mediaQueries.tabletLandscapeUp} {
-		max-width: calc(${({ itemsCount }) => itemsCount} * 40% - 40rem);
+		max-width: calc(${({ $itemsCount }) => $itemsCount} * 40% - 40rem);
 	}
 
 	& > div {

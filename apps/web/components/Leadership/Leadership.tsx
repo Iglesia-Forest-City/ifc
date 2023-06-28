@@ -21,7 +21,7 @@ export const Leadership = ({ id, className, title, leaders }: LeadershipProps) =
 		<LeadershipSection id={id} className={className}>
 			<Title>{title}</Title>
 			<Leaders>
-				<LeadersWrapper itemsCount={leaders.length}>
+				<LeadersWrapper $itemsCount={leaders.length}>
 					{leaders.map(({ picture, name, role, bio }) => (
 						<Leader key={`${name}-${role}`}>
 							<ImageWrapper>

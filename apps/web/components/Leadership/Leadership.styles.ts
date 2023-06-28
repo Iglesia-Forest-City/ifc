@@ -20,7 +20,7 @@ export const Leaders = styled.div`
 `
 
 interface LeadersWrapperProps {
-	itemsCount: number
+	$itemsCount: number
 }
 
 export const LeadersWrapper = styled.div<LeadersWrapperProps>`
@@ -28,10 +28,10 @@ export const LeadersWrapper = styled.div<LeadersWrapperProps>`
 	gap: 1em;
 	grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
 	padding: 0 2rem;
-	width: calc(${({ itemsCount }) => itemsCount} * 100% - 8rem);
+	width: calc(${({ $itemsCount }) => $itemsCount} * 100% - 8rem);
 
 	${({ theme }) => theme.mediaQueries.tabletLandscapeUp} {
-		max-width: calc(${({ itemsCount }) => itemsCount} * 25%);
+		max-width: calc(${({ $itemsCount }) => $itemsCount} * 25%);
 	}
 
 	& > article {

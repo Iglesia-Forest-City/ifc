@@ -17,7 +17,7 @@ export const Videos = ({ className, id, title, videos, channelURL }: VideosProps
 		<CTA href={channelURL}>Ver todos</CTA>
 		{videos.length > 0 && (
 			<VideoGallery>
-				<GalleryWrapper itemsCount={videos.length}>
+				<GalleryWrapper $itemsCount={videos.length}>
 					{videos.map(({ resourceId, title, publishedAt, description }) => (
 						<VideoItem
 							key={resourceId.videoId}
