@@ -98,3 +98,17 @@ export type YouTubeDataResponse = {
 		resultsPerPage: number
 	}
 }
+
+export type YouTubeError = {
+	error: {
+		code: number
+		message: string
+		errors: {
+			message: string
+			domain: string
+			reason: string
+			location: string
+			locationType: string
+		}[]
+	}
+}

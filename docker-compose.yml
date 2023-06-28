@@ -62,6 +62,10 @@ services:
       - API_TOKEN_SALT
       - TRANSFER_TOKEN_SALT
       - NODE_ENV=production
+      - YOUTUBE_API_KEY
+      - MICROSOFT_GRAPH_TENANT
+      - MICROSOFT_GRAPH_CLIENT_ID
+      - MICROSOFT_GRAPH_CLIENT_SECRET
     ports:
       - 1337:1337
     networks:
