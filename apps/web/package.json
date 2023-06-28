@@ -8,7 +8,7 @@
     "build": "next build",
     "postbuild": "cp -r public .next/standalone && cp -r .next/static .next/standalone/.next && (cd .next/standalone && zip -r release.zip .)",
     "build:docker": "docker build --secret id=_env,src=.env -t ifcweb.azurecr.io/ifc-web .",
-		"push:docker": "docker push ifcweb.azurecr.io/ifc-web",
+    "push:docker": "docker push ifcweb.azurecr.io/ifc-web",
     "start": "node server.js",
     "lint": "next lint",
     "lint-staged": "lint-staged",
@@ -28,7 +28,8 @@
     "sharp": "0.32.1",
     "socket.io": "4.7.1",
     "socket.io-client": "4.7.1",
-    "styled-components": "5.3.11"
+    "styled-components": "6.0.1",
+    "stylis": "4.3.0"
   },
   "devDependencies": {
     "@csjs/generate": "0.0.6",
@@ -40,7 +41,6 @@
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "@types/styled-components": "5.1.26",
     "@types/youtube": "0.0.47",
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@typescript-eslint/parser": "5.60.1",
