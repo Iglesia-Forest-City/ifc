@@ -10,7 +10,9 @@
     "strapi": "strapi",
     "build:docker": "docker build -t ifcweb.azurecr.io/ifc-cms .",
     "push:docker": "docker push ifcweb.azurecr.io/ifc-cms",
-    "generate:types": "strapi ts:generate-types"
+    "generate:types": "strapi ts:generate-types",
+    "config:dump": "strapi config:dump -pf strapiConfig.json",
+    "config:restore": "strapi config:restore -f strapiConfig.json"
   },
   "devDependencies": {},
   "dependencies": {
