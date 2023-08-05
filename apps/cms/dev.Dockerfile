@@ -5,4 +5,4 @@ ENV NODE_ENV=development
 WORKDIR /app
 COPY ./package.json ./package.json
 RUN yarn
-CMD yarn build && yarn develop
+CMD yarn && yarn build && yarn develop
